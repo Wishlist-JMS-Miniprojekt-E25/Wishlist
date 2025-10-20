@@ -1,2 +1,2 @@
-AUTHORS:
-Martin Underbjerg // MU-1995
+# AUTHORS:
+# Martin Underbjerg
