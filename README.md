@@ -1,4 +1,4 @@
 # AUTHORS:
 # Martin Underbjerg
 # Simon Abildtrup - SimAbild
-# Joshua Svensson - Joshua-KEA
+# Joshua Svensson - Joshua-kea
