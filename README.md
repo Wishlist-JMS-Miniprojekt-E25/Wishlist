@@ -1,3 +1,3 @@
 # AUTHORS:
-# Martin Underbjerg - MU-1995
+# Martin Underbjerg
 # Simon Abildtrup - SimAbild
