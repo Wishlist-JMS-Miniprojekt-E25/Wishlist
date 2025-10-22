@@ -1,16 +1,17 @@
 package com.example.wishlist.model;
 
+import java.util.List;
+
 public class User {
     private String userName;
     private String password;
     private int userID;
-    private int wishlistID;
+    private List<Wishlist> wishlists;
 
-    public User(String userName, String password, int userID, int wishlistID) {
+    public User(String userName, String password, int userID) {
         this.userName = userName;
         this.password = password;
         this.userID = userID;
-        this.wishlistID = wishlistID;
     }
 
     public String getUserName() {
@@ -37,11 +38,11 @@ public class User {
         this.userID = userID;
     }
 
-    public int getWishlistID() {
-        return wishlistID;
+    public List<Wishlist> getWishlists() {
+        return wishlists;
     }
 
-    public void setWishlistID(int wishlistID) {
-        this.wishlistID = wishlistID;
+    public void setWishlists(List<Wishlist> wishlists) {
+        this.wishlists = wishlists;
     }
 }
