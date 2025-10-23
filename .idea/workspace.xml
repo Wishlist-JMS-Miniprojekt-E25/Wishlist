@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="tester om jeg kan pushe">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="Push vis ønskelister branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Vis-ønskelister" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -62,7 +63,7 @@
     "JUnit.WishlistApplicationTests.contextLoads.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "Vis-ønskelister",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -90,6 +91,11 @@
       <option name="MAIN_CLASS_NAME" value="com.example.wishlist.WishlistApplicationTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
+      <envs>
+        <env name="DEV_USERNAME" value="root" />
+        <env name="DEV_PASSWORD" value="Ch4rlieGa2r!B4d" />
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,8 +107,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
+      <item itemvalue="Spring Boot.WishlistApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
         <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
         <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
       </list>
@@ -160,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761050171364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Push vis ønskelister branch">
+      <option name="closed" value="true" />
+      <created>1761225501221</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761225501221</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +199,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tilføjet en masse filer" />
     <MESSAGE value="tilføjet readme authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tilføjet readme authors" />
+    <MESSAGE value="Push vis ønskelister branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Push vis ønskelister branch" />
   </component>
 </project>
