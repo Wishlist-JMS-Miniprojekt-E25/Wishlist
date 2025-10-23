@@ -1,5 +1,6 @@
 -- Brug databasen
-USE wishlist;
+USE
+wishlist;
 
 -- Drop eksisterende tabeller hvis de findes (så scriptet kan køres igen uden fejl)
 DROP TABLE IF EXISTS wishWishlist;
@@ -19,8 +20,9 @@ CREATE TABLE user
 
 CREATE TABLE wishlist
 (
-    wishlistID INT AUTO_INCREMENT PRIMARY KEY,
-    userID     INT,
+    wishlistID   INT AUTO_INCREMENT PRIMARY KEY,
+    wishlistName VARCHAR(250),
+    userID       INT,
     FOREIGN KEY (userID) REFERENCES user (userID)
 );
 
