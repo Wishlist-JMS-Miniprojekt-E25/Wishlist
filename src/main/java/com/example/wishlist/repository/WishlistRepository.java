@@ -30,8 +30,6 @@ public class WishlistRepository {
         String sql = """
         SELECT
         w.wishName,
-        w.description,
-        w.link,
         w.price,
         w.isReserved
         FROM wish w
