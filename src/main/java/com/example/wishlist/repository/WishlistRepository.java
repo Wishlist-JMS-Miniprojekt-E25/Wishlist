@@ -1,9 +1,12 @@
 package com.example.wishlist.repository;
 
 import com.example.wishlist.model.Wish;
+import com.example.wishlist.model.Wishlist;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class WishlistRepository {
@@ -15,12 +18,14 @@ public class WishlistRepository {
         wish.setLink(rs.getString("link"));
         wish.setPrice(rs.getInt("price"));
         wish.setReserved(rs.getBoolean("isReserved"));
+        wish.setWishID(rs.getInt("wishID"));
         return wish;
     };
 
     private final RowMapper<Wishlist> wishlistRowMapper = (rs, rowNum) -> {
       Wishlist wishlist = new Wishlist();
       wishlist.setName(rs.getString("wishlistName"));
+      wishlist.setWishlistID(rs.getInt("wishlistID"));
       return wishlist;
     };
 
@@ -28,7 +33,7 @@ public class WishlistRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Wish> showWishList() {
+    public List<Wish> showWishlist() {
 
         String sql = """
         SELECT
@@ -47,8 +52,9 @@ public class WishlistRepository {
                 SELECT
                 wl.wishlistID
                 FROM wishlist wl
+                WHERE wishlistID = ?
                 """;
 
-        return jdbcTemplate.query(sql,);
+        return jdbcTemplate.queryForObject(sql, wishlistRowMapper,wishlistID);
     }
 }
