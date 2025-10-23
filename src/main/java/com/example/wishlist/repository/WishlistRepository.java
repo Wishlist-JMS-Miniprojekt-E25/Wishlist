@@ -18,12 +18,14 @@ public class WishlistRepository {
         wish.setLink(rs.getString("link"));
         wish.setPrice(rs.getInt("price"));
         wish.setReserved(rs.getBoolean("isReserved"));
+        wish.setWishID(rs.getInt("wishID"));
         return wish;
     };
 
     private final RowMapper<Wishlist> wishlistRowMapper = (rs, rowNum) -> {
       Wishlist wishlist = new Wishlist();
       wishlist.setName(rs.getString("wishlistName"));
+      wishlist.setWishlistID(rs.getInt("wishlistID"));
       return wishlist;
     };
 
@@ -34,6 +36,7 @@ public class WishlistRepository {
     public List<Wishlist> showAllWishlists(){
        String sql = """
        SELECT
+       ws.wishlistID,
        ws.wishlistName
        FROM wishlist ws
        """;
