@@ -57,21 +57,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.WishlistApplicationTests.contextLoads.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "dev",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.WishlistApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\simon\IdeaProjects\Wishlist\src\main\resources\static" />
@@ -90,6 +90,11 @@
       <option name="MAIN_CLASS_NAME" value="com.example.wishlist.WishlistApplicationTests" />
       <option name="METHOD_NAME" value="contextLoads" />
       <option name="TEST_OBJECT" value="method" />
+      <envs>
+        <env name="DEV_USERNAME" value="root" />
+        <env name="DEV_PASSWORD" value="Ch4rlieGa2r!B4d" />
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+      </envs>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,8 +106,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
+      <item itemvalue="Spring Boot.WishlistApplication" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
         <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
         <item itemvalue="JUnit.WishlistApplicationTests.contextLoads" />
       </list>
