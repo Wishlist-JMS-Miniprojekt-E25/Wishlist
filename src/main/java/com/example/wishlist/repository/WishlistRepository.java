@@ -10,4 +10,9 @@ public class WishlistRepository {
     public WishlistRepository(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
+
+    public void showWishList() {
+
+    }
+
 }
