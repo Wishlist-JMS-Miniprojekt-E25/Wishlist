@@ -9,14 +9,16 @@ public class Wish {
     private int wishlistID;
     private boolean isReserved;
 
-    public Wish(String name, String description, String link, int price, int wishlistID, boolean isReserved) {
+    public Wish(String name, String description, String link, int price, int wishlistID) {
         this.name = name;
         this.description = description;
         this.link = link;
         this.price = price;
         this.wishlistID = wishlistID;
-        this.isReserved = isReserved;
+        isReserved = false;
     }
+
+    public Wish() {}
 
     public String getName() {
         return name;
