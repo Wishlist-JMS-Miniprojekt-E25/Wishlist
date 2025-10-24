@@ -28,5 +28,4 @@ public class WishlistController {
 
         return "wishlist";
     }
-
 }
