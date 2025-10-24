@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="getmapping postmapping for ønskelister">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" afterDir="false" />
-    </list>
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="Html side virker foreløbigt og GetMapping + showWishlist metoden er done" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,7 +211,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761234465555</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Html side virker foreløbigt og GetMapping + showWishlist metoden er done">
+      <option name="closed" value="true" />
+      <created>1761301042561</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761301042561</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Html side virker foreløbigt og GetMapping + showWishlist metoden er done">
+      <option name="closed" value="true" />
+      <created>1761301150981</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1761301150981</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +255,7 @@
     <MESSAGE value="tilføjet showwishlist og findwishlistbyid" />
     <MESSAGE value="hentede rowmapper" />
     <MESSAGE value="getmapping postmapping for ønskelister" />
-    <option name="LAST_COMMIT_MESSAGE" value="getmapping postmapping for ønskelister" />
+    <MESSAGE value="Html side virker foreløbigt og GetMapping + showWishlist metoden er done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Html side virker foreløbigt og GetMapping + showWishlist metoden er done" />
   </component>
 </project>
