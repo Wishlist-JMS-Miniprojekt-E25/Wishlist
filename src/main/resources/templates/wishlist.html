@@ -8,7 +8,7 @@
 <div th:if="${!wishes.isEmpty()}">
     <ul>
         <li th:each="wish: ${wishes}">
-            <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" th:text="${wish.name}"></a>
+            <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" th:text="${wish.wishName}"></a>
             <p th:text="${wish.price}"> </p>
         </li>
     </ul>
