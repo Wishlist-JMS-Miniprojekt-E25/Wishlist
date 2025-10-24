@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="tester om jeg kan pushe">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="getmapping postmapping for ønskelister">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -57,27 +62,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;JUnit.WishlistApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "JUnit.WishlistApplicationTests.contextLoads.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.WishlistApplication.executor": "Run",
+    "git-widget-placeholder": "vis__ønskeliste",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.tabs",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\glute\IdeaProjects\Wishlist\docs" />
       <recent name="C:\Users\simon\IdeaProjects\Wishlist\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WishlistApplicationTests.contextLoads">
+  <component name="RunManager" selected="Spring Boot.WishlistApplication">
     <configuration name="WishlistApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Wishlist" />
       <extension name="coverage">
@@ -100,6 +112,11 @@
       </method>
     </configuration>
     <configuration name="WishlistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+        <env name="DEV_PASSWORD" value="Sjc47end%" />
+        <env name="DEV_USERNAME" value="root" />
+      </envs>
       <module name="Wishlist" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.wishlist.WishlistApplication" />
       <method v="2">
@@ -170,7 +187,39 @@
       <option name="project" value="LOCAL" />
       <updated>1761050171364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="tilføjet showwishlist og findwishlistbyid">
+      <option name="closed" value="true" />
+      <created>1761228948169</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761228948169</updated>
+    </task>
+    <task id="LOCAL-00006" summary="tilføjet showwishlist og findwishlistbyid">
+      <option name="closed" value="true" />
+      <created>1761229860021</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761229860021</updated>
+    </task>
+    <task id="LOCAL-00007" summary="hentede rowmapper">
+      <option name="closed" value="true" />
+      <created>1761230045976</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761230045976</updated>
+    </task>
+    <task id="LOCAL-00008" summary="getmapping postmapping for ønskelister">
+      <option name="closed" value="true" />
+      <created>1761234465555</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761234465555</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +238,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tilføjet en masse filer" />
+    <MESSAGE value="added author" />
     <MESSAGE value="tilføjet readme authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tilføjet readme authors" />
+    <MESSAGE value="tilføjet attributter i wish, wishlist og user" />
+    <MESSAGE value="tilføjet ER model png og ændret i user, wish og wishlist klasserne" />
+    <MESSAGE value="tilføjet tomme kontruktører og isReserved er nu false som default" />
+    <MESSAGE value="added showWishList" />
+    <MESSAGE value="tilføjet showwishlist og findwishlistbyid" />
+    <MESSAGE value="hentede rowmapper" />
+    <MESSAGE value="getmapping postmapping for ønskelister" />
+    <option name="LAST_COMMIT_MESSAGE" value="getmapping postmapping for ønskelister" />
   </component>
 </project>

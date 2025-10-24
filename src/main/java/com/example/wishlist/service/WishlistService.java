@@ -15,8 +15,8 @@ public class WishlistService {
         this.repository = repository;
     }
 
-    public List<Wish> showWishlist() {
-        return repository.showWishlist();
+    public List<Wish> showWishlist(int wishlistID) {
+        return repository.showWishlist(wishlistID);
     }
 
     public Wishlist findWishlistByID(int wishlistID) {

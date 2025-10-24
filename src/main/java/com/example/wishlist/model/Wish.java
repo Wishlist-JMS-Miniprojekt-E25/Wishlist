@@ -1,20 +1,20 @@
 package com.example.wishlist.model;
 
 public class Wish {
+    private int wishID;
+    private int wishlistID;
     private String name;
     private String description;
     private String link;
     private int price;
-    private int wishID;
-    private int wishlistID;
     private boolean isReserved;
 
-    public Wish(String name, String description, String link, int price, int wishlistID) {
+    public Wish(int wishlistID, String name, String description, String link, int price) {
+        this.wishlistID = wishlistID;
         this.name = name;
         this.description = description;
         this.link = link;
         this.price = price;
-        this.wishlistID = wishlistID;
         isReserved = false;
     }
 
@@ -68,11 +68,11 @@ public class Wish {
         this.wishlistID = wishlistID;
     }
 
-    public boolean isReserved() {
+    public boolean getIsReserved() {
         return isReserved;
     }
 
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
+    public void setIsReserved(boolean isReserved) {
+        this.isReserved = isReserved;
     }
 }

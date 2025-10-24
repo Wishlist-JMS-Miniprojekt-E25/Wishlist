@@ -1,7 +1,6 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.model.Wish;
-import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishlistService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,10 +20,10 @@ public class WishlistController {
     }
 
     //Viser siden der viser den enkelte ønskeliste.
-    @GetMapping("/wishlist/{wishlistID}/{userID}")
-    public String showWishlist(@PathVariable int wishlistID,@PathVariable int userID, Model model) {
+    @GetMapping("/wishlist/{wishlistID}")
+    public String showWishlist(@PathVariable int wishlistID, Model model) {
 
-        List<Wish> wishes = service.showWishlist();
+        List<Wish> wishes = service.showWishlist(wishlistID);
         model.addAttribute("wishes", wishes);
 
         return "wishlist";

@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Wishlist</title>
 </head>
 <body>
-
+<div th:if="${!wishes.isEmpty()}">
+    <ul>
+        <li th:each="wish: ${wishes}">
+            <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}"
+               th:text="${wish.name}"></a>
+            <p th:text="${wish.price}"> </p>
+        </li>
+    </ul>
+</div>
+<div th:if="${wishes.isEmpty()}">Wishlist is empty</div>
 </body>
 </html>
