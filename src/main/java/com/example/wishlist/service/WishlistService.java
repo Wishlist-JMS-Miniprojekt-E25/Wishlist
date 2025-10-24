@@ -1,5 +1,6 @@
 package com.example.wishlist.service;
 
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.repository.WishlistRepository;
 import org.springframework.stereotype.Service;
 
@@ -9,5 +10,9 @@ public class WishlistService {
 
     public WishlistService(WishlistRepository repository) {
         this.repository = repository;
+    }
+
+    public Wish findWishByID(int wishID){
+        return repository.findWishByID(wishID);
     }
 }
