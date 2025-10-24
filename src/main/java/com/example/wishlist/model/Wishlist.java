@@ -3,13 +3,13 @@ package com.example.wishlist.model;
 import java.util.List;
 
 public class Wishlist {
-    private String name;
-    private int wishlistID;
-    private int userID;
+    private String wishlistName;
+    private Integer wishlistID;
+    private Integer userID;
     private List<Wish> wishes;
 
-    public Wishlist(String name, int userID){
-        this.name = name;
+    public Wishlist(String wishlistName, Integer userID){
+        this.wishlistName = wishlistName;
         this.userID = userID;
     }
 
@@ -19,23 +19,23 @@ public class Wishlist {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
-    public String getName() {
-        return name;
+    public String getWishlistName() {
+        return wishlistName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setWishlistName(String wishlistName) {
+        this.wishlistName = wishlistName;
     }
 
-    public int getWishlistID() {
+    public Integer getWishlistID() {
         return wishlistID;
     }
 
-    public void setWishlistID(int wishlistID) {
+    public void setWishlistID(Integer wishlistID) {
         this.wishlistID = wishlistID;
     }
 

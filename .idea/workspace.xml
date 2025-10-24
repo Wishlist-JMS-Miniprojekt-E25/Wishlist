@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="Html side virker foreløbigt og GetMapping + showWishlist metoden er done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wishlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wishlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addWish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addWish.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +73,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.WishlistApplication.executor": "Run",
-    "git-widget-placeholder": "vis__ønskeliste",
+    "git-widget-placeholder": "add__wish",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -266,6 +273,7 @@
     <MESSAGE value="hentede rowmapper" />
     <MESSAGE value="getmapping postmapping for ønskelister" />
     <MESSAGE value="Html side virker foreløbigt og GetMapping + showWishlist metoden er done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Html side virker foreløbigt og GetMapping + showWishlist metoden er done" />
+    <MESSAGE value="random push for at slette branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="random push for at slette branch" />
   </component>
 </project>

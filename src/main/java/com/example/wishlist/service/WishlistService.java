@@ -15,11 +15,19 @@ public class WishlistService {
         this.repository = repository;
     }
 
-    public List<Wish> showWishlist(int wishlistID) {
+    public List<Wishlist> showWishlists(Integer userID) {
+        return repository.showWishlists(userID);
+    }
+
+    public List<Wish> showWishlist(Integer wishlistID) {
         return repository.showWishlist(wishlistID);
     }
 
-    public Wishlist findWishlistByID(int wishlistID) {
+    public Wishlist findWishlistByID(Integer wishlistID) {
         return repository.findWishlistByID(wishlistID);
+    }
+
+    public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {
+        return repository.addWish(wishlistID, wishName, description, link, price);
     }
 }

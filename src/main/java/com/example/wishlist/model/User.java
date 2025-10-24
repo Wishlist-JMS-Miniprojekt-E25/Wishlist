@@ -5,10 +5,10 @@ import java.util.List;
 public class User {
     private String userName;
     private String password;
-    private int userID;
+    private Integer userID;
     private List<Wishlist> wishlists;
 
-    public User(String userName, String password, int userID) {
+    public User(String userName, String password, Integer userID) {
         this.userName = userName;
         this.password = password;
         this.userID = userID;
@@ -32,11 +32,11 @@ public class User {
         this.password = password;
     }
 
-    public int getUserID() {
+    public Integer getUserID() {
         return userID;
     }
 
-    public void setUserID(int userID) {
+    public void setUserID(Integer userID) {
         this.userID = userID;
     }
 
