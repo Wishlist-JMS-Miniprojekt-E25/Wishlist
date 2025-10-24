@@ -13,7 +13,7 @@ public class WishlistRepository {
         Wish wish = new Wish();
         wish.setWishID(rs.getInt("wishID"));
         wish.setWishlistID(rs.getInt("wishlistID"));
-        wish.setName(rs.getString("name"));
+        wish.setWishName(rs.getString("wishName"));
         wish.setDescription(rs.getString("description"));
         wish.setLink(rs.getString("link"));
         wish.setPrice(rs.getInt("price"));
@@ -37,7 +37,7 @@ public class WishlistRepository {
                 SELECT
                 w.wishID,
                 w.wishlistID,
-                w.name,
+                w.wishName,
                 w.description,
                 w.link,
                 w.price,

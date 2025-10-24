@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="tester om jeg kan pushe">
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="Vis-ønsker burde nu virke med repo, service, controller og html.&#10;Wish klassen har fået opdatering så det ikke er name men i stedet er wishName, da jeg ellers havde problemer med at få det til at virke.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/model/Wish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wish.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +49,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -61,8 +64,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.WishlistApplicationTests.contextLoads.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.WishlistApplication.executor": "Run",
     "git-widget-placeholder": "vis-ønske",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -75,6 +83,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joshu\IdeaProjects\Wishlist\src\main\resources\static\css" />
       <recent name="C:\Users\simon\IdeaProjects\Wishlist\src\main\resources\static" />
     </key>
   </component>
@@ -172,7 +181,47 @@
       <option name="project" value="LOCAL" />
       <updated>1761050171364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merget dev ind i denne branch">
+      <option name="closed" value="true" />
+      <created>1761229299277</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761229299277</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Tilføjet ID'er til RowMappers">
+      <option name="closed" value="true" />
+      <created>1761231190958</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761231190958</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Færdiggjort repo, service og controller til forside med ønskelister. Tilføjet tom  brugerForside.html">
+      <option name="closed" value="true" />
+      <created>1761290853190</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761290853190</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Lavet brugerForside.html">
+      <option name="closed" value="true" />
+      <created>1761293739064</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761293739064</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rettet fejl i kodekommentar">
+      <option name="closed" value="true" />
+      <created>1761293915669</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761293915669</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +241,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tilføjet en masse filer" />
     <MESSAGE value="tilføjet readme authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tilføjet readme authors" />
+    <MESSAGE value="merget dev ind i denne branch" />
+    <MESSAGE value="Tilføjet ID'er til RowMappers" />
+    <MESSAGE value="Færdiggjort repo, service og controller til forside med ønskelister. Tilføjet tom  brugerForside.html" />
+    <MESSAGE value="Lavet brugerForside.html" />
+    <MESSAGE value="rettet fejl i kodekommentar" />
+    <MESSAGE value="Vis-ønsker burde nu virke med repo, service, controller og html.&#10;Wish klassen har fået opdatering så det ikke er name men i stedet er wishName, da jeg ellers havde problemer med at få det til at virke." />
+    <option name="LAST_COMMIT_MESSAGE" value="Vis-ønsker burde nu virke med repo, service, controller og html.&#10;Wish klassen har fået opdatering så det ikke er name men i stedet er wishName, da jeg ellers havde problemer med at få det til at virke." />
   </component>
 </project>

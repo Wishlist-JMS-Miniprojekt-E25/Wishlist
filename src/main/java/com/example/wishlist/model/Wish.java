@@ -1,7 +1,7 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    private String name;
+    private String wishName;
     private String description;
     private String link;
     private int price;
@@ -9,8 +9,8 @@ public class Wish {
     private int wishlistID;
     private boolean isReserved;
 
-    public Wish(String name, String description, String link, int price, int wishlistID) {
-        this.name = name;
+    public Wish(String wishName, String description, String link, int price, int wishlistID) {
+        this.wishName = wishName;
         this.description = description;
         this.link = link;
         this.price = price;
@@ -20,12 +20,12 @@ public class Wish {
 
     public Wish() {}
 
-    public String getName() {
-        return name;
+    public String getWishName() {
+        return wishName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setWishName(String wishName) {
+        this.wishName = wishName;
     }
 
     public String getDescription() {
