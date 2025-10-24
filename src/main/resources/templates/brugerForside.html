@@ -2,10 +2,28 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Show Attractions</title>
+    <title>Your wishlists</title>
     <link th:href="@{/css/brugerForside.css}" rel="stylesheet">
 </head>
 <body>
+    <h1>JMS Online Wishlist</h1>
+
+    <!-- tjekker om der er nogen ønskelister, og itererer så gemmen dem, hvis de er der -->
+    <div th:if="${!wishlists.isEmpty()}">
+        <ul>
+            <li th:each="wishlist : ${wishlists}">
+                <a th:href="@{'/wishlists' + ${wishlist.wishlistID}}"
+                   th:text="${wishlist.name}"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hvis der ikke er nogen ønskelister, så får man besked om dette -->
+    <div th:if="${wishlists.isEmpty()}">
+        <p>There are no wishlists.</p>
+    </div>
+
+<!-- tilføj knapper til at oprette og slette ønsker her -->
 
 </body>
 </html>
