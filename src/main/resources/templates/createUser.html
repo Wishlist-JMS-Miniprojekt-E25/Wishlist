@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an Account</title>
+</head>
+<body>
+<div class="accountCreationTable">
+    <h2>Create an account</h2>
+
+    <form th:action="@{/save}" th:object="${user}" method="post">
+
+        <label>Username:</label>
+        <input type="text" th:field="*{userName}" required><br><br>
+
+        <label>Password:</label>
+        <input type="password" th:field="*{password}" required><br><br>
+
+        <button type="submit">Create account</button>
+    </form>
+
+    <p><a href="/">Already have an account? Log in</a></p>
+</div>
+</body>
+</html>
