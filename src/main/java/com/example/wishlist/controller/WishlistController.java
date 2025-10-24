@@ -18,7 +18,7 @@ public class WishlistController {
     public WishlistController(WishlistService service){
         this.service = service;
     }
-// returnerer "forside", da det er brugerens egen forside
+
     @GetMapping("/wishlists")
     public String showUsersWishlists(@RequestParam int userID, Model model){
         List<Wishlist> wishlists = service.showAllWishlists(userID);
