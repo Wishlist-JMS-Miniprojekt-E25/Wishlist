@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -19,9 +20,9 @@ public class WishlistController {
     }
 // returnerer "forside", da det er brugerens egen forside
     @GetMapping("/wishlists")
-    public String showUsersWishlists(Model model){
-        List<Wishlist> wishlists = service.showAllWishlists();
+    public String showUsersWishlists(@RequestParam int userID, Model model){
+        List<Wishlist> wishlists = service.showAllWishlists(userID);
         model.addAttribute("wishlists", wishlists);
-        return "forside";
+        return "brugerForside";
     }
 }

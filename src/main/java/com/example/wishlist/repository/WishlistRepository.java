@@ -33,14 +33,15 @@ public class WishlistRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public List<Wishlist> showAllWishlists(){
+    public List<Wishlist> showAllWishlists(int userID){
        String sql = """
        SELECT
-       ws.wishlistID,
-       ws.wishlistName
-       FROM wishlist ws
+       wl.wishlistID,
+       wl.wishlistName
+       FROM wishlist wl
+       WHERE wl.user_id = ?
        """;
 
-        return jdbcTemplate.query(sql, wishlistRowMapper);
+        return jdbcTemplate.query(sql, wishlistRowMapper, userID);
     }
 }
