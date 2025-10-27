@@ -1,5 +1,6 @@
 package com.example.wishlist.service;
 
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.WishlistRepository;
@@ -25,6 +26,10 @@ public class WishlistService {
 
     public Wishlist findWishlistByID(Integer wishlistID) {
         return repository.findWishlistByID(wishlistID);
+    }
+
+    public User findUserByID(Integer userID) {
+        return repository.findUserByID(userID);
     }
 
     public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {

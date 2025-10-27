@@ -1,5 +1,6 @@
 package com.example.wishlist.repository;
 
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -31,8 +32,16 @@ public class WishlistRepository {
         Wishlist wishlist = new Wishlist();
         wishlist.setWishlistName(rs.getString("wishlistName"));
         wishlist.setWishlistID(rs.getInt("wishlistID"));
-        wishlist.setWishlistID(rs.getInt("userID"));
+        wishlist.setUserID(rs.getInt("userID"));
         return wishlist;
+    };
+
+    private final RowMapper<User> userRowMapper = (rs, rowNum) -> {
+      User user = new User();
+      user.setUserID(rs.getInt("userID"));
+      user.setUserName(rs.getString("userName"));
+      user.setPassword(rs.getString("password"));
+      return user;
     };
 
     public WishlistRepository(JdbcTemplate jdbcTemplate) {
@@ -78,6 +87,19 @@ public class WishlistRepository {
                 """;
 
         return jdbcTemplate.queryForObject(sql, wishlistRowMapper, wishlistID);
+    }
+
+    public User findUserByID(Integer userID) {
+        String sql = """
+                SELECT
+                u.userID,
+                u.userName,
+                u.password
+                FROM user u
+                WHERE userID = ?
+                """;
+
+        return jdbcTemplate.queryForObject(sql, userRowMapper,userID);
     }
 
     public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {

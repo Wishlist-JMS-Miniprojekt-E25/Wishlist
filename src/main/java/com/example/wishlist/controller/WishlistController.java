@@ -1,5 +1,6 @@
 package com.example.wishlist.controller;
 
+import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishlistService;
@@ -47,16 +48,17 @@ public class WishlistController {
     }
 
     @GetMapping("/addWishlist/{userID}")
-    public String addWishlist(@PathVariable Integer userID,Model model) {
+    public String addWishlist(@PathVariable Integer userID, Model model) {
         Wishlist wishlist = new Wishlist();
+        wishlist.setUserID(userID);
         model.addAttribute("wishlist", wishlist);
         return "addWishlist";
     }
 
     @PostMapping("/saveWishlist")
-    public String saveWishlist(@ModelAttribute Wishlist wishlist, RedirectAttributes redirectAttributes) {
-        service.addWishlist(wishlist.getWishlistName(), wishlist.getUserID());
-        redirectAttributes.addAttribute("userID", wishlist.getUserID());
+    public String saveWishlist(@ModelAttribute Wishlist wishlist, @RequestParam("userID") Integer userID, RedirectAttributes redirectAttributes) {
+        service.addWishlist(wishlist.getWishlistName(), userID);
+        redirectAttributes.addAttribute("userID", userID);
         return "redirect:/Wishlists/{userID}";
     }
 }
