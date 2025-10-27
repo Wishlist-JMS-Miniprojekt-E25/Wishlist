@@ -28,7 +28,7 @@ public class WishlistController {
     }
 
     //går til admin siden efter succefuldt login
-    @PostMapping("/login")
+    @PostMapping("/userFrontpage")
     public String login(@RequestParam String username,
                         @RequestParam String password,
                         Model model) {
