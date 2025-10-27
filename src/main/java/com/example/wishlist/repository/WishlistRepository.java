@@ -28,14 +28,14 @@ public class WishlistRepository {
     };
 
     private final RowMapper<Wishlist> wishlistRowMapper = (rs, rowNum) -> {
-      Wishlist wishlist = new Wishlist();
-      wishlist.setWishlistName(rs.getString("wishlistName"));
-      wishlist.setWishlistID(rs.getInt("wishlistID"));
-      wishlist.setWishlistID(rs.getInt("userID"));
-      return wishlist;
+        Wishlist wishlist = new Wishlist();
+        wishlist.setWishlistName(rs.getString("wishlistName"));
+        wishlist.setWishlistID(rs.getInt("wishlistID"));
+        wishlist.setWishlistID(rs.getInt("userID"));
+        return wishlist;
     };
 
-    public WishlistRepository(JdbcTemplate jdbcTemplate){
+    public WishlistRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -49,23 +49,24 @@ public class WishlistRepository {
                 WHERE wl.userID = ?
                 """;
 
-        return jdbcTemplate.query(sql,wishlistRowMapper, userID);
+        return jdbcTemplate.query(sql, wishlistRowMapper, userID);
     }
+
     public List<Wish> showWishlist(Integer wishlistID) {
         String sql = """
-        SELECT
-        w.wishID,
-        w.wishlistID,
-        w.wishName,
-        w.description,
-        w.link,
-        w.price,
-        w.isReserved
-        FROM wish w
-        WHERE w.wishlistID = ?
-        """;
+                SELECT
+                w.wishID,
+                w.wishlistID,
+                w.wishName,
+                w.description,
+                w.link,
+                w.price,
+                w.isReserved
+                FROM wish w
+                WHERE w.wishlistID = ?
+                """;
 
-        return jdbcTemplate.query(sql,wishRowMapper, wishlistID);
+        return jdbcTemplate.query(sql, wishRowMapper, wishlistID);
     }
 
     public Wishlist findWishlistByID(Integer wishlistID) {
@@ -76,29 +77,49 @@ public class WishlistRepository {
                 WHERE wishlistID = ?
                 """;
 
-        return jdbcTemplate.queryForObject(sql, wishlistRowMapper,wishlistID);
+        return jdbcTemplate.queryForObject(sql, wishlistRowMapper, wishlistID);
     }
 
-    public Wish addWish(Integer wishlistID , String wishName, String description, String link, int price) {
-            String sql = "INSERT INTO wish (wishlistID, wishName, description, link, price) VALUES (?, ?, ?, ?, ?)";
-            KeyHolder keyHolder = new GeneratedKeyHolder();
+    public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {
+        String sql = "INSERT INTO wish (wishlistID, wishName, description, link, price) VALUES (?, ?, ?, ?, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
 
-            jdbcTemplate.update(connection -> {
-                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-                ps.setInt(1, wishlistID);
-                ps.setString(2, wishName);
-                ps.setString(3, description);
-                ps.setString(4, link);
-                ps.setInt(5,price);
-                return ps;
-            }, keyHolder);
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, wishlistID);
+            ps.setString(2, wishName);
+            ps.setString(3, description);
+            ps.setString(4, link);
+            ps.setInt(5, price);
+            return ps;
+        }, keyHolder);
 
-            int wishID = keyHolder.getKey() != null ? keyHolder.getKey().intValue() : -1;
+        int wishID = keyHolder.getKey() != null ? keyHolder.getKey().intValue() : -1;
 
-            if (wishID != -1) {
-                return new Wish(wishID, wishlistID, wishName, description, link, price);
-            } else {
-                throw new RuntimeException("Could not add wish");
-            }
+        if (wishID != -1) {
+            return new Wish(wishID, wishlistID, wishName, description, link, price);
+        } else {
+            throw new RuntimeException("Could not add wish");
         }
     }
+
+    public Wishlist addWishlist(String wishlistName, Integer userID) {
+        String sql = "INSERT INTO wishlist (wishlistName, userID) VALUES (?, ?)";
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        jdbcTemplate.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, wishlistName);
+            ps.setInt(2, userID);
+            return ps;
+        }, keyHolder);
+
+        int wishlistID = keyHolder.getKey() != null ? keyHolder.getKey().intValue() : -1;
+
+        if (wishlistID != -1) {
+            return new Wishlist(wishlistID, wishlistName, userID);
+        } else {
+            throw new RuntimeException("Could not add wishlist");
+        }
+    }
+}

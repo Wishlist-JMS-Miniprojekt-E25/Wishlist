@@ -45,4 +45,18 @@ public class WishlistController {
         redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
         return "redirect:/wishlist/{wishlistID}";
     }
+
+    @GetMapping("/addWishlist/{userID}")
+    public String addWishlist(@PathVariable Integer userID,Model model) {
+        Wishlist wishlist = new Wishlist();
+        model.addAttribute("wishlist", wishlist);
+        return "addWishlist";
+    }
+
+    @PostMapping("/saveWishlist")
+    public String saveWishlist(@ModelAttribute Wishlist wishlist, RedirectAttributes redirectAttributes) {
+        service.addWishlist(wishlist.getWishlistName(), wishlist.getUserID());
+        redirectAttributes.addAttribute("userID", wishlist.getUserID());
+        return "redirect:/Wishlists/{userID}";
+    }
 }

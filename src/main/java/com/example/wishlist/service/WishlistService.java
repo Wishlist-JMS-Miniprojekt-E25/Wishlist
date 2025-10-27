@@ -30,4 +30,8 @@ public class WishlistService {
     public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {
         return repository.addWish(wishlistID, wishName, description, link, price);
     }
+
+    public Wishlist addWishlist(String wishlistName, Integer userID){
+        return repository.addWishlist(wishlistName, userID);
+    }
 }
