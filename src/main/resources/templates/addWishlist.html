@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add wishlist</title>
 </head>
 <body>
+<h1>Add wishlist</h1>
 
+<form th:action="@{/saveWishlist}" th:object="${wishlist}" method="post">
+
+    <input type="hidden" th:field="*{userID}">
+
+    <label>Name:</label>
+    <label>
+        <input type="text" th:field="*{wishlistName}" required>
+    </label>
+
+    <br><br>
+
+    <button type="submit">Save</button>
+    <button type="button" onclick="window.location.href='/bruger-forside'">Cancel</button>
+</form>
 </body>
 </html>

@@ -1,31 +1,32 @@
 package com.example.wishlist.model;
 
 public class Wish {
-    private String name;
+    private int wishID;
+    private Integer wishlistID;
+    private String wishName;
     private String description;
     private String link;
     private int price;
-    private int wishID;
-    private int wishlistID;
     private boolean isReserved;
 
-    public Wish(String name, String description, String link, int price, int wishlistID) {
-        this.name = name;
+    public Wish(int wishID, Integer wishlistID, String wishName, String description, String link, int price) {
+        this.wishID = wishID;
+        this.wishlistID = wishlistID;
+        this.wishName = wishName;
         this.description = description;
         this.link = link;
         this.price = price;
-        this.wishlistID = wishlistID;
         isReserved = false;
     }
 
     public Wish() {}
 
-    public String getName() {
-        return name;
+    public String getWishName() {
+        return wishName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setWishName(String wishName) {
+        this.wishName = wishName;
     }
 
     public String getDescription() {
@@ -60,19 +61,19 @@ public class Wish {
         this.wishID = wishID;
     }
 
-    public int getWishlistID() {
+    public Integer getWishlistID() {
         return wishlistID;
     }
 
-    public void setWishlistID(int wishlistID) {
+    public void setWishlistID(Integer wishlistID) {
         this.wishlistID = wishlistID;
     }
 
-    public boolean isReserved() {
+    public boolean getIsReserved() {
         return isReserved;
     }
 
-    public void setReserved(boolean reserved) {
-        isReserved = reserved;
+    public void setIsReserved(boolean isReserved) {
+        this.isReserved = isReserved;
     }
 }
