@@ -6,7 +6,6 @@ public class User {
     private String userName;
     private String password;
     private Integer userID;
-    private List<Wishlist> wishlists;
 
     public User(String userName, String password, Integer userID) {
         this.userName = userName;
@@ -38,13 +37,5 @@ public class User {
 
     public void setUserID(Integer userID) {
         this.userID = userID;
-    }
-
-    public List<Wishlist> getWishlists() {
-        return wishlists;
-    }
-
-    public void setWishlists(List<Wishlist> wishlists) {
-        this.wishlists = wishlists;
     }
 }

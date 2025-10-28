@@ -6,7 +6,6 @@ public class Wishlist {
     private String wishlistName;
     private Integer wishlistID;
     private Integer userID;
-    private List<Wish> wishes;
 
     public Wishlist(Integer wishlistID, String wishlistName, Integer userID){
         this.wishlistID = wishlistID;
@@ -38,13 +37,5 @@ public class Wishlist {
 
     public void setWishlistID(Integer wishlistID) {
         this.wishlistID = wishlistID;
-    }
-
-    public List<Wish> getWishes() {
-        return wishes;
-    }
-
-    public void setWishes(List<Wish> wishes) {
-        this.wishes = wishes;
     }
 }
