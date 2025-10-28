@@ -40,11 +40,12 @@ public class WishlistRepository {
     };
 
     private final RowMapper<User> userRowMapper = (rs, rowNum) -> {
-      User user = new User();
-      user.setUserID(rs.getInt("userID"));
-      user.setUserName(rs.getString("userName"));
-      user.setPassword(rs.getString("password"));
-      return user;
+        User user = new User();
+        user.setUserID(rs.getInt("userID"));
+        user.setUserName(rs.getString("userName"));
+        user.setPassword(rs.getString("password"));
+        return user;
+
     };
 
     public WishlistRepository(JdbcTemplate jdbcTemplate) {
@@ -80,8 +81,8 @@ public class WishlistRepository {
     public List<Wishlist> showWishlists(Integer userID) {
         String sql = """
                 SELECT
-                wl.wishlistID,
                 wl.wishlistName,
+                wl.wishlistID,
                 wl.userID
                 FROM wishlist wl
                 WHERE wl.userID = ?
@@ -128,7 +129,7 @@ public class WishlistRepository {
                 WHERE userID = ?
                 """;
 
-        return jdbcTemplate.queryForObject(sql, userRowMapper,userID);
+        return jdbcTemplate.queryForObject(sql, userRowMapper, userID);
     }
 
     public Wish addWish(Integer wishlistID, String wishName, String description, String link, int price) {
@@ -172,5 +173,15 @@ public class WishlistRepository {
         } else {
             throw new RuntimeException("Could not add wishlist");
         }
+    }
+    public User findUserByCredentials(String userName, String password){
+        String sql = """
+                SELECT userID, userName, password
+                FROM wishlist.`user`
+                WHERE userName = ? AND password = ?
+                """;
+
+        List<User> users = jdbcTemplate.query(sql, userRowMapper, userName, password);
+        return users.isEmpty() ? null : users.get(0);
     }
 }

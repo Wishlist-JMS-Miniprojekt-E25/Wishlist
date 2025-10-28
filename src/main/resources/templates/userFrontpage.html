@@ -2,12 +2,33 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Frontpage</title>
+    <title>Your wishlists</title>
+    <link th:href="@{/css/userFrontpage.css}" rel="stylesheet">
 </head>
 <body>
-<h1>Welcome!</h1>
-<p>You are now logged in.</p>
+<h1 th:text="'Welcome, ' + ${username} + '!'"></h1>
 
-<a href="/">Log out</a>
+    <!-- tjekker om der er nogen ønskelister, og itererer så gemmen dem, hvis de er der -->
+<h2>Your Wishlists:</h2>
+    <div th:if="${!wishlists.isEmpty()}">
+        <ul>
+            <li th:each="wishlist : ${wishlists}">
+                <a th:href="@{'/wishlist/' + ${wishlist.wishlistID}}"
+                   th:text="${wishlist.wishlistName}"></a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hvis der ikke er nogen ønskelister, så får man besked om dette -->
+    <div th:if="${wishlists.isEmpty()}">
+        <p>There are no wishlists.</p>
+    </div>
+
+<div>
+    <a href="/addWishlist">Add wishlist</a>
+</div>
+
+<!-- tilføj knapper til at oprette og slette ønskelister her & log out knap -->
+
 </body>
 </html>
