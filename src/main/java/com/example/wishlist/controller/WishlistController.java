@@ -20,11 +20,9 @@ import java.util.List;
 @RequestMapping()
 public class WishlistController {
     private final WishlistService service;
-    private final WishlistService wishlistService;
 
-    public WishlistController(WishlistService service, WishlistService wishlistService){
+    public WishlistController(WishlistService service){
         this.service = service;
-        this.wishlistService = wishlistService;
     }
 
     //viser forsiden
@@ -39,7 +37,7 @@ public class WishlistController {
                         @RequestParam String password,
                         Model model) {
 
-        boolean valid = wishlistService.validateUser(username, password);
+        boolean valid = service.validateUser(username, password);
 
         if (valid) {
             return "userFrontpage"; // viser side efter login
@@ -58,7 +56,7 @@ public class WishlistController {
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
-        wishlistService.addUser(user.getUserName(), user.getPassword());
+        service.addUser(user.getUserName(), user.getPassword());
 
         // Tilføj en succesbesked, som sendes med i redirect
         redirectAttributes.addFlashAttribute("successMessage", "Account created successfully! You can now log in.");
@@ -107,9 +105,12 @@ public class WishlistController {
         service.addWishlist(wishlist.getWishlistName(), userID);
         redirectAttributes.addAttribute("userID", userID);
         return "redirect:/Wishlists/{userID}";
+
+    }
+
     @GetMapping("/wishlists")
-    public String showUsersWishlists(@RequestParam int userID, Model model){
-        List<Wishlist> wishlists = service.showAllWishlists(userID);
+    public String showUsersWishlists(@RequestParam Integer userID, Model model){
+        List<Wishlist> wishlists = service.showWishlists(userID);
         model.addAttribute("wishlists", wishlists);
         return "brugerForside";
     }
