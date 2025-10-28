@@ -11,7 +11,7 @@
 
     <p th:if="${successMessage}" th:text="${successMessage}" style="color: green;"></p>
 
-    <form th:action="@{/login}" method="post">
+    <form th:action="@{/userFrontpage}" method="post">
 
         <label>Username:</label>
         <input type="text" name="username" required><br><br>

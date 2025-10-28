@@ -81,8 +81,8 @@ public class WishlistRepository {
     public List<Wishlist> showWishlists(Integer userID) {
         String sql = """
                 SELECT
-                wl.wishlistID,
                 wl.wishlistName,
+                wl.wishlistID,
                 wl.userID
                 FROM wishlist wl
                 WHERE wl.userID = ?
@@ -173,5 +173,15 @@ public class WishlistRepository {
         } else {
             throw new RuntimeException("Could not add wishlist");
         }
+    }
+    public User findUserByCredentials(String userName, String password){
+        String sql = """
+                SELECT userID, userName, password
+                FROM wishlist.`user`
+                WHERE userName = ? AND password = ?
+                """;
+
+        List<User> users = jdbcTemplate.query(sql, userRowMapper, userName, password);
+        return users.isEmpty() ? null : users.get(0);
     }
 }

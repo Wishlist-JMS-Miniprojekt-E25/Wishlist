@@ -51,4 +51,8 @@ public class WishlistService {
         return repository.addWishlist(wishlistName, userID);
 
     }
+
+    public User findUserByCredentials(String userName, String password){
+        return repository.findUserByCredentials(userName, password);
+    }
 }

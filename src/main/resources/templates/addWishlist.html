@@ -9,8 +9,6 @@
 
 <form th:action="@{/saveWishlist}" th:object="${wishlist}" method="post">
 
-    <input type="hidden" th:field="*{userID}">
-
     <label>Name:</label>
     <label>
         <input type="text" th:field="*{wishlistName}" required>
@@ -19,7 +17,7 @@
     <br><br>
 
     <button type="submit">Save</button>
-    <button type="button" onclick="window.location.href='/bruger-forside'">Cancel</button>
+    <button type="button" onclick="window.location.href='/userFrontpage'">Cancel</button>
 </form>
 </body>
 </html>

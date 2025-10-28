@@ -1,7 +1,6 @@
 package com.example.wishlist.controller;
 
 import com.example.wishlist.model.User;
-import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.service.WishlistService;
@@ -35,11 +34,20 @@ public class WishlistController {
     @PostMapping("/userFrontpage")
     public String login(@RequestParam String username,
                         @RequestParam String password,
+                        HttpSession session,
                         Model model) {
 
-        boolean valid = service.validateUser(username, password);
+        User loggedInUser = service.findUserByCredentials(username, password);
 
-        if (valid) {
+        if (loggedInUser != null){
+            session.setAttribute("userID", loggedInUser.getUserID());
+            session.setAttribute("username", loggedInUser.getUserName());
+
+            List<Wishlist> userWishlists = service.showWishlists(loggedInUser.getUserID());
+            model.addAttribute("wishlists", userWishlists);
+            model.addAttribute("username", loggedInUser.getUserName());
+
+
             return "userFrontpage"; // viser side efter login
         } else {
             model.addAttribute("error", true);
@@ -92,8 +100,14 @@ public class WishlistController {
         return "redirect:/wishlist/{wishlistID}";
     }
 
-    @GetMapping("/addWishlist/{userID}")
-    public String addWishlist(@PathVariable Integer userID, Model model) {
+    @GetMapping("/addWishlist")
+    public String addWishlist(HttpSession session, Model model) {
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
         Wishlist wishlist = new Wishlist();
         wishlist.setUserID(userID);
         model.addAttribute("wishlist", wishlist);
@@ -101,17 +115,30 @@ public class WishlistController {
     }
 
     @PostMapping("/saveWishlist")
-    public String saveWishlist(@ModelAttribute Wishlist wishlist, @RequestParam("userID") Integer userID, RedirectAttributes redirectAttributes) {
+    public String saveWishlist(@ModelAttribute Wishlist wishlist, HttpSession session) {
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
         service.addWishlist(wishlist.getWishlistName(), userID);
-        redirectAttributes.addAttribute("userID", userID);
-        return "redirect:/Wishlists/{userID}";
+        return "redirect:/wishlists";
 
     }
 
     @GetMapping("/wishlists")
-    public String showUsersWishlists(@RequestParam Integer userID, Model model){
+    public String showUsersWishlists(HttpSession session, Model model){
+        Integer userID = (Integer) session.getAttribute("userID");
+        String username = (String) session.getAttribute("username");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
         List<Wishlist> wishlists = service.showWishlists(userID);
         model.addAttribute("wishlists", wishlists);
-        return "brugerForside";
+        model.addAttribute("username", username);
+        return "userFrontpage";
     }
 }

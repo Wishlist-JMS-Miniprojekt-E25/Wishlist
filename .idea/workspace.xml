@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="tester om jeg kan pushe">
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="merget vis-ønskelister til dev">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/controller/WishlistController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/service/WishlistService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Frontpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Frontpage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/addWishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/addWishlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/brugerForside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/userFrontpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/userFrontpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +65,13 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "JUnit.WishlistApplicationTests.contextLoads.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.WishlistApplication.executor": "Run",
     "git-widget-placeholder": "#61 on dev",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -76,7 +87,7 @@
       <recent name="C:\Users\simon\IdeaProjects\Wishlist\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WishlistApplicationTests.contextLoads">
+  <component name="RunManager" selected="Spring Boot.WishlistApplication">
     <configuration name="WishlistApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Wishlist" />
       <extension name="coverage">
@@ -94,6 +105,11 @@
       </method>
     </configuration>
     <configuration name="WishlistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+        <env name="DEV_USERNAME" value="root" />
+        <env name="DEV_PASSWORD" value="Ch4rlieGa2r!B4d" />
+      </envs>
       <module name="Wishlist" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.wishlist.WishlistApplication" />
       <method v="2">
@@ -163,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761050171364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merget vis-ønskelister til dev">
+      <option name="closed" value="true" />
+      <created>1761655988544</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761655988544</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +207,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tilføjet en masse filer" />
     <MESSAGE value="tilføjet readme authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tilføjet readme authors" />
+    <MESSAGE value="merget vis-ønskelister til dev" />
+    <option name="LAST_COMMIT_MESSAGE" value="merget vis-ønskelister til dev" />
   </component>
 </project>
