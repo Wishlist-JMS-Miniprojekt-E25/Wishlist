@@ -84,8 +84,14 @@ public class WishlistController {
     }
 
     //Viser siden med formen for at tilføje et ønske til en ønskeliste.
-    @GetMapping("/addWish/{userID}")
-    public String addWish(@PathVariable Integer userID, Model model) {
+    @GetMapping("/addWish")
+    public String addWish(HttpSession session, Model model) {
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
         Wish wish = new Wish();
         List<Wishlist> wishlists = service.showWishlists(userID);
         model.addAttribute("wish", wish);
