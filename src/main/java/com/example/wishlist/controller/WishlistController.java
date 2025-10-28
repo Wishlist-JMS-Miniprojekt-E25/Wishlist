@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -104,5 +107,10 @@ public class WishlistController {
         service.addWishlist(wishlist.getWishlistName(), userID);
         redirectAttributes.addAttribute("userID", userID);
         return "redirect:/Wishlists/{userID}";
+    @GetMapping("/wishlists")
+    public String showUsersWishlists(@RequestParam int userID, Model model){
+        List<Wishlist> wishlists = service.showAllWishlists(userID);
+        model.addAttribute("wishlists", wishlists);
+        return "brugerForside";
     }
 }

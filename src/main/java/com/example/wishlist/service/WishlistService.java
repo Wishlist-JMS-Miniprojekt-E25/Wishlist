@@ -49,5 +49,7 @@ public class WishlistService {
 
     public Wishlist addWishlist(String wishlistName, Integer userID){
         return repository.addWishlist(wishlistName, userID);
+    public List<Wishlist> showAllWishlists(int userID){
+        return repository.showAllWishlists(userID);
     }
 }

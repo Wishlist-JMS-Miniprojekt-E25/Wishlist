@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="tester om jeg kan pushe">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ea048fb5-88ad-40c8-816a-b5f2d4fd36d0" name="Changes" comment="rettet fejl i kodekommentar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/wishlist/repository/WishlistRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/brugerForside.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/brugerForside.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +23,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Vis-ønskelister" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,6 +47,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -70,14 +72,33 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.WishlistApplicationTests.contextLoads.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.WishlistApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Vis-ønskelister&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\joshu\IdeaProjects\Wishlist\src\main\resources\static\css" />
       <recent name="C:\Users\simon\IdeaProjects\Wishlist\src\main\resources\static" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.WishlistApplicationTests.contextLoads">
+  <component name="RunManager" selected="Spring Boot.WishlistApplication">
     <configuration name="WishlistApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Wishlist" />
       <extension name="coverage">
@@ -95,6 +116,11 @@
       </method>
     </configuration>
     <configuration name="WishlistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+        <env name="DEV_USERNAME" value="root" />
+        <env name="DEV_PASSWORD" value="Ch4rlieGa2r!B4d" />
+      </envs>
       <module name="Wishlist" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.wishlist.WishlistApplication" />
       <method v="2">
@@ -160,7 +186,47 @@
       <option name="project" value="LOCAL" />
       <updated>1761050171364</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merget dev ind i denne branch">
+      <option name="closed" value="true" />
+      <created>1761229299277</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1761229299277</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Tilføjet ID'er til RowMappers">
+      <option name="closed" value="true" />
+      <created>1761231190958</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761231190958</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Færdiggjort repo, service og controller til forside med ønskelister. Tilføjet tom  brugerForside.html">
+      <option name="closed" value="true" />
+      <created>1761290853190</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761290853190</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Lavet brugerForside.html">
+      <option name="closed" value="true" />
+      <created>1761293739064</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761293739064</updated>
+    </task>
+    <task id="LOCAL-00009" summary="rettet fejl i kodekommentar">
+      <option name="closed" value="true" />
+      <created>1761293915669</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761293915669</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +246,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tilføjet en masse filer" />
     <MESSAGE value="tilføjet readme authors" />
-    <option name="LAST_COMMIT_MESSAGE" value="tilføjet readme authors" />
+    <MESSAGE value="merget dev ind i denne branch" />
+    <MESSAGE value="Tilføjet ID'er til RowMappers" />
+    <MESSAGE value="Færdiggjort repo, service og controller til forside med ønskelister. Tilføjet tom  brugerForside.html" />
+    <MESSAGE value="Lavet brugerForside.html" />
+    <MESSAGE value="rettet fejl i kodekommentar" />
+    <option name="LAST_COMMIT_MESSAGE" value="rettet fejl i kodekommentar" />
   </component>
 </project>

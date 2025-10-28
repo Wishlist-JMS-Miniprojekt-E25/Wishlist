@@ -28,6 +28,8 @@ public class WishlistRepository {
         wish.setLink(rs.getString("link"));
         wish.setPrice(rs.getInt("price"));
         wish.setIsReserved(rs.getBoolean("isReserved"));
+        wish.setReserved(rs.getBoolean("isReserved"));
+        wish.setWishID(rs.getInt("wishID"));
         return wish;
     };
 
@@ -45,6 +47,10 @@ public class WishlistRepository {
       user.setUserName(rs.getString("userName"));
       user.setPassword(rs.getString("password"));
       return user;
+      Wishlist wishlist = new Wishlist();
+      wishlist.setName(rs.getString("wishlistName"));
+      wishlist.setWishlistID(rs.getInt("wishlistID"));
+      return wishlist;
     };
 
     public WishlistRepository(JdbcTemplate jdbcTemplate) {
@@ -172,5 +178,15 @@ public class WishlistRepository {
         } else {
             throw new RuntimeException("Could not add wishlist");
         }
+    public List<Wishlist> showAllWishlists(int userID){
+       String sql = """
+       SELECT
+       wl.wishlistID,
+       wl.wishlistName
+       FROM wishlist wl
+       WHERE wl.user_id = ?
+       """;
+
+        return jdbcTemplate.query(sql, wishlistRowMapper, userID);
     }
 }
