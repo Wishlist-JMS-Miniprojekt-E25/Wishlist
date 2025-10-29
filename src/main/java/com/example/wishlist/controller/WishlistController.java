@@ -189,8 +189,6 @@ public class WishlistController {
         redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
         return "redirect:/wishlist/{wishlistID}";
     }
-}
-
 
     @PostMapping("/deleteWish/{wishID}")
     public String deleteWish(@PathVariable int wishID, RedirectAttributes redirectAttributes) {
