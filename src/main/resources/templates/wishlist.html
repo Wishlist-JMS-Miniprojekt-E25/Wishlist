@@ -14,5 +14,10 @@
     </ul>
 </div>
 <div th:if="${wishes.isEmpty()}">Wishlist is empty</div>
+
+<a th:href="@{/wishlists}">
+    <button>Back to frontpage</button>
+</a>
+
 </body>
 </html>

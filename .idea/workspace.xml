@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="119496cf-ecaf-4b3e-a021-79c07248fd6f" name="Changes" comment="workspace" />
+    <list default="true" id="119496cf-ecaf-4b3e-a021-79c07248fd6f" name="Changes" comment="workspace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/wishlist.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +44,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "Spring Boot.WishlistApplication.executor": "Run",
     "git-widget-placeholder": "dev",
     "node.js.selected.package.tslint": "(autodetect)"
@@ -48,6 +55,11 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="WishlistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+        <env name="DEV_PASSWORD" value="Sjc47end%" />
+        <env name="DEV_USERNAME" value="root" />
+      </envs>
       <module name="Wishlist" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.wishlist.WishlistApplication" />
       <extension name="coverage">
@@ -84,7 +96,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761726870645</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="workspace">
+      <option name="closed" value="true" />
+      <created>1761727133780</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761727133780</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
