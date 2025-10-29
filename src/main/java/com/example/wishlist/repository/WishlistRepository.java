@@ -199,4 +199,15 @@ public class WishlistRepository {
                 """;
         return jdbcTemplate.queryForObject(sql, wishRowMapper, wishID);
     }
+
+    public void updateWish(Wish wish){
+        String sql = """
+                UPDATE wish 
+                SET wishName = ?,
+                SET description = ?,
+                SET link = ?
+                SET price = ?
+                """;
+        jdbcTemplate.update(sql, wish.getWishName(), wish.getDescription(), wish.getLink(), wish.getPrice());
+    }
 }
