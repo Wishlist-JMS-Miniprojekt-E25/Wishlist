@@ -27,7 +27,13 @@
         <button>Back to wishlist</button>
     </a>
 
-<!-- tilføj knapper til rediger og slet ønske -->
+    <div>
+        <a th:href="@{/edit/{wishID}(wishID=${wish.wishID})}">
+            <button>Edit wish</button>
+        </a>
+    </div>
+
+<!-- tilføj knap til slet ønske -->
 
 </body>
 </html>

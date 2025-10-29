@@ -146,9 +146,6 @@ public class WishlistController {
 
     }
 
-
-
-
     @GetMapping("/wishlists")
     public String showUsersWishlists(HttpSession session, Model model){
         Integer userID = (Integer) session.getAttribute("userID");
@@ -162,6 +159,30 @@ public class WishlistController {
         model.addAttribute("wishlists", wishlists);
         model.addAttribute("username", username);
         return "userFrontpage";
+    }
+
+    @GetMapping("edit/{wishID}")
+    public String editWish(@PathVariable int wishID, Model model){
+        Wish wish = service.findWishByID(wishID);
+
+        model.addAttribute("wish", wish);
+
+        return "editWish";
+    }
+
+    @PostMapping("/update")
+    public String updateWish(@ModelAttribute Wish wish, RedirectAttributes redirectAttributes, HttpSession session){
+
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        service.updateWish(wish);
+
+        redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
+        return "redirect:/wishlist/{wishlistID}";
     }
 }
 

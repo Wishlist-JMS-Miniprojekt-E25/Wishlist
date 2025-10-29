@@ -204,10 +204,11 @@ public class WishlistRepository {
         String sql = """
                 UPDATE wish 
                 SET wishName = ?,
-                SET description = ?,
-                SET link = ?
-                SET price = ?
+                description = ?,
+                link = ?,
+                price = ?
+                WHERE wishID = ?
                 """;
-        jdbcTemplate.update(sql, wish.getWishName(), wish.getDescription(), wish.getLink(), wish.getPrice());
+        jdbcTemplate.update(sql, wish.getWishName(), wish.getDescription(), wish.getLink(), wish.getPrice(), wish.getWishID());
     }
 }
