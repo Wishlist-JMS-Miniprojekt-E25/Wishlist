@@ -85,7 +85,6 @@ public class WishlistController {
 
         return "wish";
     }
-}
 
     //Viser siden der viser den enkelte ønskeliste.
     @GetMapping("/wishlist/{wishlistID}")

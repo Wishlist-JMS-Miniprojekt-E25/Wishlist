@@ -180,6 +180,9 @@ public class WishlistRepository {
                 FROM wishlist.`user`
                 WHERE userName = ? AND password = ?
                 """;
+        List<User> users = jdbcTemplate.query(sql, userRowMapper, userName, password);
+        return users.isEmpty() ? null : users.get(0);
+        }
 
     public Wish findWishByID(int wishID){
         String sql = """
@@ -195,10 +198,5 @@ public class WishlistRepository {
                 WHERE w.wishID = ?
                 """;
         return jdbcTemplate.queryForObject(sql, wishRowMapper, wishID);
-    }
-}
-
-        List<User> users = jdbcTemplate.query(sql, userRowMapper, userName, password);
-        return users.isEmpty() ? null : users.get(0);
     }
 }
