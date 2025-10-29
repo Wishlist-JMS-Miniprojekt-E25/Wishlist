@@ -148,6 +148,7 @@ public class WishlistController {
 
 
 
+
     @GetMapping("/wishlists")
     public String showUsersWishlists(HttpSession session, Model model){
         Integer userID = (Integer) session.getAttribute("userID");
