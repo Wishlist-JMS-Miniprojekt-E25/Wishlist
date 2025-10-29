@@ -60,4 +60,8 @@ public class WishlistService {
     public Wish findWishByID(int wishID){
         return repository.findWishByID(wishID);
     }
+
+    public void deleteWishByID(int wishID) {
+        repository.deleteWishByID(wishID);
+    }
 }

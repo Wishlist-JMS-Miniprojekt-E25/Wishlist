@@ -199,4 +199,9 @@ public class WishlistRepository {
                 """;
         return jdbcTemplate.queryForObject(sql, wishRowMapper, wishID);
     }
+
+    public void deleteWishByID(int wishID) {
+        String sql = "DELETE FROM wish WHERE wishID = ?";
+        jdbcTemplate.update(sql, wishID);
+    }
 }

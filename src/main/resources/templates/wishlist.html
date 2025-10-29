@@ -5,6 +5,39 @@
     <title>Wishlist</title>
 </head>
 <body>
+
+<table>
+    <tr th:if="${wishes.isEmpty()}">Wishlist is empty</tr>
+    <tr th:if="${!wishes.isEmpty()}">
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr th:each="wish: ${wishes}">
+        <td><a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" th:text="${wish.wishName}"></a></td>
+        <td th:text="${wish.price}"></td>
+        <td>
+            <form th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<div>
+    <a th:href="@{/addWishFromWishlist/{id}(id=${wishlistID})}">
+        <button>Add wish</button>
+    </a>
+</div>
+
+<div>
+    <a th:href="@{/wishlists}">
+        <button>Back to frontpage</button>
+    </a>
+</div>
+
+<!--
 <div th:if="${!wishes.isEmpty()}">
     <ul>
         <li th:each="wish: ${wishes}">
@@ -14,10 +47,6 @@
     </ul>
 </div>
 <div th:if="${wishes.isEmpty()}">Wishlist is empty</div>
-
-<a th:href="@{/wishlists}">
-    <button>Back to frontpage</button>
-</a>
-
+-->
 </body>
 </html>

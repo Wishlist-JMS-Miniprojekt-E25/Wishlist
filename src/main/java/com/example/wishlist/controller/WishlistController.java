@@ -3,15 +3,12 @@ package com.example.wishlist.controller;
 import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
-import com.example.wishlist.model.Wish;
 import com.example.wishlist.service.WishlistService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,7 +85,7 @@ public class WishlistController {
 
     //Viser siden der viser den enkelte ønskeliste.
     @GetMapping("/wishlist/{wishlistID}")
-    public String showWishlist(@PathVariable Integer wishlistID, Model model) {
+    public String showWishlist(@PathVariable int wishlistID, Model model) {
 
         List<Wish> wishes = service.showWishlist(wishlistID);
         model.addAttribute("wishes", wishes);
@@ -97,8 +94,8 @@ public class WishlistController {
     }
 
     //Viser siden med formen for at tilføje et ønske til en ønskeliste.
-    @GetMapping("/addWish")
-    public String addWish(HttpSession session, Model model) {
+    @GetMapping("/addWishFromUserFrontpage")
+    public String addWishFromUserFrontpage(HttpSession session, Model model) {
         Integer userID = (Integer) session.getAttribute("userID");
 
         if (userID == null){
@@ -109,7 +106,15 @@ public class WishlistController {
         List<Wishlist> wishlists = service.showWishlists(userID);
         model.addAttribute("wish", wish);
         model.addAttribute("wishlists", wishlists);
-        return "addWish";
+        return "addWish_fromUserFrontpage";
+    }
+
+    @GetMapping("/addWishFromWishlist/{wishlistID}")
+    public String addWishFromWishlist(@PathVariable Integer wishlistID, Model model) {
+        Wish wish = new Wish();
+        wish.setWishlistID(wishlistID);
+        model.addAttribute("wish", wish);
+        return "addWish_fromWishlist";
     }
 
     @PostMapping("/saveWish")
@@ -146,9 +151,6 @@ public class WishlistController {
 
     }
 
-
-
-
     @GetMapping("/wishlists")
     public String showUsersWishlists(HttpSession session, Model model){
         Integer userID = (Integer) session.getAttribute("userID");
@@ -163,5 +165,12 @@ public class WishlistController {
         model.addAttribute("username", username);
         return "userFrontpage";
     }
-}
 
+    @PostMapping("/deleteWish/{wishID}")
+    public String deleteWish(@PathVariable int wishID, RedirectAttributes redirectAttributes) {
+        Wish wish = service.findWishByID(wishID);
+        service.deleteWishByID(wishID);
+        redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
+        return "redirect:/wishlist/{wishlistID}";
+    }
+}

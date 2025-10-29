@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add wish</title>
+</head>
+<body>
+
+<h1>Add wish</h1>
+
+<form th:action="@{/saveWish}" th:object="${wish}" method="post">
+    <input type="hidden" th:field="*{wishlistID}">
+
+    <label>Name:</label>
+    <label>
+        <input type="text" th:field="*{wishName}" required>
+    </label>
+
+    <br><br>
+
+    <label>Description:</label>
+    <label>
+        <input type="text" th:field="*{description}">
+    </label>
+
+    <br><br>
+
+    <label>Link:</label>
+    <label>
+        <input type="text" th:field="*{link}">
+    </label>
+
+    <br><br>
+
+    <label>Price:</label>
+
+    <label>
+        <input type="text" th:field="*{price}">
+    </label>
+
+    <br><br>
+
+    <button type="submit">Save</button>
+    <a th:href="@{/wishlist/{id}(id=${wish.wishlistID})}" class="Cancel-button">Cancel</a>
+</form>
+</body>
+</html>
