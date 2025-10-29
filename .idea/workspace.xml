@@ -18,21 +18,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "MU-1995"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;MU-1995&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Wishlist-JMS-Miniprojekt-E25/Wishlist.git",
-    "accountId": "99a8a99a-fb9b-4281-b99f-c95e53270040"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Wishlist-JMS-Miniprojekt-E25/Wishlist.git&quot;,
+    &quot;accountId&quot;: &quot;99a8a99a-fb9b-4281-b99f-c95e53270040&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="34jSOD3yUQqhaBAfJWL4bJyV4T7" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -42,12 +42,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Spring Boot.WishlistApplication.executor": "Run",
-    "git-widget-placeholder": "dev",
+    "git-widget-placeholder": "#61 on dev",
     "node.js.selected.package.tslint": "(autodetect)"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="WishlistApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <envs>
+        <env name="DEV_USERNAME" value="root" />
+        <env name="DEV_DATABASE_URL" value="jdbc:mysql://localhost:3306/wishlist" />
+        <env name="DEV_PASSWORD" value="Ch4rlieGa2r!B4d" />
+      </envs>
       <module name="Wishlist" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.wishlist.WishlistApplication" />
       <extension name="coverage">
