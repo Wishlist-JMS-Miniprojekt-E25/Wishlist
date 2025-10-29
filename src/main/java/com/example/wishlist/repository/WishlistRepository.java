@@ -204,4 +204,16 @@ public class WishlistRepository {
         String sql = "DELETE FROM wish WHERE wishID = ?";
         jdbcTemplate.update(sql, wishID);
     }
+
+    public void updateWish(Wish wish){
+        String sql = """
+                UPDATE wish 
+                SET wishName = ?,
+                description = ?,
+                link = ?,
+                price = ?
+                WHERE wishID = ?
+                """;
+        jdbcTemplate.update(sql, wish.getWishName(), wish.getDescription(), wish.getLink(), wish.getPrice(), wish.getWishID());
+    }
 }

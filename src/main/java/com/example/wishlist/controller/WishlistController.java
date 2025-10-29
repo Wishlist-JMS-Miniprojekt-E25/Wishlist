@@ -166,6 +166,32 @@ public class WishlistController {
         return "userFrontpage";
     }
 
+    @GetMapping("edit/{wishID}")
+    public String editWish(@PathVariable int wishID, Model model){
+        Wish wish = service.findWishByID(wishID);
+
+        model.addAttribute("wish", wish);
+
+        return "editWish";
+    }
+
+    @PostMapping("/update")
+    public String updateWish(@ModelAttribute Wish wish, RedirectAttributes redirectAttributes, HttpSession session){
+
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        service.updateWish(wish);
+
+        redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
+        return "redirect:/wishlist/{wishlistID}";
+    }
+}
+
+
     @PostMapping("/deleteWish/{wishID}")
     public String deleteWish(@PathVariable int wishID, RedirectAttributes redirectAttributes) {
         Wish wish = service.findWishByID(wishID);
