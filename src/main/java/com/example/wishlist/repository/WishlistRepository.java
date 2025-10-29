@@ -181,6 +181,23 @@ public class WishlistRepository {
                 WHERE userName = ? AND password = ?
                 """;
 
+    public Wish findWishByID(int wishID){
+        String sql = """
+                SELECT
+                w.wishID,
+                w.wishlistID,
+                w.wishName,
+                w.description,
+                w.link,
+                w.price,
+                w.isReserved
+                FROM wish w
+                WHERE w.wishID = ?
+                """;
+        return jdbcTemplate.queryForObject(sql, wishRowMapper, wishID);
+    }
+}
+
         List<User> users = jdbcTemplate.query(sql, userRowMapper, userName, password);
         return users.isEmpty() ? null : users.get(0);
     }

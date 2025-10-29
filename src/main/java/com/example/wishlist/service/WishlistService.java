@@ -4,6 +4,7 @@ import com.example.wishlist.model.User;
 import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.model.Wishlist;
+import com.example.wishlist.model.Wish;
 import com.example.wishlist.repository.WishlistRepository;
 import org.springframework.stereotype.Service;
 
@@ -54,5 +55,9 @@ public class WishlistService {
 
     public User findUserByCredentials(String userName, String password){
         return repository.findUserByCredentials(userName, password);
+    }
+
+    public Wish findWishByID(int wishID){
+        return repository.findWishByID(wishID);
     }
 }
