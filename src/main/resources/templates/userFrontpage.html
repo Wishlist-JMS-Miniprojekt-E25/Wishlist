@@ -10,14 +10,39 @@
 
     <!-- tjekker om der er nogen ønskelister, og itererer så gemmen dem, hvis de er der -->
 <h2>Your Wishlists:</h2>
+<!--
     <div th:if="${!wishlists.isEmpty()}">
         <ul>
             <li th:each="wishlist : ${wishlists}">
                 <a th:href="@{'/wishlist/' + ${wishlist.wishlistID}}"
-                   th:text="${wishlist.wishlistName}"></a>
+                   th:text="${wishlist.wishlistName}"
+                ></a>
+                <form th:action="@{/deleteWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
+
+
         </ul>
     </div>
+    -->
+
+<table>
+    <tr th:if="${!wishlists.isEmpty()}">
+        <th></th>
+        <th></th>
+    </tr>
+
+    <tr th:each="wishlist: ${wishlists}">
+        <td><a th:href="@{/wishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" th:text="${wishlist.wishlistName}"></a></td>
+        <td>
+            <form th:action="@{/deleteWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
 
     <!-- Hvis der ikke er nogen ønskelister, så får man besked om dette -->
     <div th:if="${wishlists.isEmpty()}">

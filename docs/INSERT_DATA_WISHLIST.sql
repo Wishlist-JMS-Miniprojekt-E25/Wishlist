@@ -15,7 +15,8 @@ VALUES (1, 'Juleliste'),
        (2, 'Barnedåb'),
        (2, 'Første skridtønskeliste'), -- Martin’s lister
        (3, 'Amagerminoen'),
-       (3, 'Mount Everest grej');      -- Joshua’s lister
+       (3, 'Mount Everest grej');
+-- Joshua’s lister
 
 -- ---------------------------------------------------------
 -- 🔹 Knyt brugere og ønskelister sammen

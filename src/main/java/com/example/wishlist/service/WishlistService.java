@@ -65,6 +65,10 @@ public class WishlistService {
         repository.deleteWishByID(wishID);
     }
 
+    public void deleteWishlistByID(int wishlistID){
+        repository.deleteWishlistByID(wishlistID);
+    }
+
     public void updateWish (Wish wish){
         repository.updateWish(wish);
     }

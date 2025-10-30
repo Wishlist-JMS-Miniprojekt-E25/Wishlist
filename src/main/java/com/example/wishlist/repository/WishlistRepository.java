@@ -110,14 +110,17 @@ public class WishlistRepository {
 
     public Wishlist findWishlistByID(Integer wishlistID) {
         String sql = """
-                SELECT
-                wl.wishlistID
-                FROM wishlist wl
-                WHERE wishlistID = ?
-                """;
+            SELECT
+            wl.wishlistID,
+            wl.wishlistName,
+            wl.userID
+            FROM wishlist wl
+            WHERE wl.wishlistID = ?
+            """;
 
         return jdbcTemplate.queryForObject(sql, wishlistRowMapper, wishlistID);
     }
+
 
     public User findUserByID(Integer userID) {
         String sql = """
@@ -215,5 +218,11 @@ public class WishlistRepository {
                 WHERE wishID = ?
                 """;
         jdbcTemplate.update(sql, wish.getWishName(), wish.getDescription(), wish.getLink(), wish.getPrice(), wish.getWishID());
+    }
+
+
+    public void deleteWishlistByID(int wishlistID) {
+        String sql = "DELETE FROM wishlist WHERE wishlistID = ?";
+        jdbcTemplate.update(sql, wishlistID);
     }
 }

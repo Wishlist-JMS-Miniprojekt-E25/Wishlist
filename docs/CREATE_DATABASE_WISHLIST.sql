@@ -23,16 +23,16 @@ CREATE TABLE wishlist
     wishlistID   INT AUTO_INCREMENT PRIMARY KEY,
     wishlistName VARCHAR(250),
     userID       INT,
-    FOREIGN KEY (userID) REFERENCES user (userID)
+    FOREIGN KEY (userID) REFERENCES user (userID) ON DELETE CASCADE
 );
 
 CREATE TABLE userWishlist
 (
     userID     INT,
-    FOREIGN KEY (userID) references user (userID),
+    FOREIGN KEY (userID) references user (userID) ON DELETE CASCADE,
 
     wishlistID INT,
-    FOREIGN key (wishlistID) references wishlist (wishlistID)
+    FOREIGN key (wishlistID) references wishlist (wishlistID) ON DELETE CASCADE
 );
 
 CREATE TABLE wish
@@ -40,20 +40,21 @@ CREATE TABLE wish
     wishID      INT AUTO_INCREMENT PRIMARY KEY,
 
     wishlistID  INT,
-    FOREIGN KEY (wishlistID) references wishlist (wishlistID),
+    FOREIGN KEY (wishlistID) references wishlist (wishlistID) ON DELETE CASCADE,
 
     wishName    VARCHAR(250)  NOT NULL,
     description VARCHAR(150)  NOT NULL,
     link        VARCHAR(1000) NOT NULL,
     price       INT,
     isReserved  BOOLEAN
+
 );
 
 CREATE TABLE wishWishlist
 (
     wishID     INT,
-    FOREIGN KEY (wishID) references wish (wishID),
+    FOREIGN KEY (wishID) references wish (wishID) ON DELETE CASCADE,
 
     wishlistID INT,
-    FOREIGN KEY (wishlistID) references wishlist (wishlistID)
+    FOREIGN KEY (wishlistID) references wishlist (wishlistID) ON DELETE CASCADE
 );

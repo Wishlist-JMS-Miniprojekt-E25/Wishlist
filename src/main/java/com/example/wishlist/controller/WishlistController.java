@@ -197,4 +197,17 @@ public class WishlistController {
         redirectAttributes.addAttribute("wishlistID", wish.getWishlistID());
         return "redirect:/wishlist/{wishlistID}";
     }
+
+    @PostMapping("/deleteWishlist/{wishlistID}")
+    public String deleteWishlist(@PathVariable int wishlistID, HttpSession session) {
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        Wishlist wishlist = service.findWishlistByID(wishlistID);
+        service.deleteWishlistByID(wishlistID);
+        return "redirect:/wishlists";
+    }
 }
