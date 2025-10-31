@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link th:href="@{/css/login.css}" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login - Wishlist</title>
+
+    <link rel="stylesheet" th:href="@{/css/frontpage.css}" />
 </head>
+
 <body>
-<div class="logintable">
-    <h2>Login</h2>
+<header class="header">
+    <div class="container">
+        <div class="logo-row">
+            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
+            <h1 class="brand">Wishlist</h1>
+        </div>
+    </div>
+</header>
 
-    <p th:if="${successMessage}" th:text="${successMessage}" style="color: green;"></p>
+<main>
+    <div class="login-container">
+        <h2>Login</h2>
 
-    <form th:action="@{/userFrontpage}" method="post">
+        <p th:if="${successMessage}" th:text="${successMessage}" class="success"></p>
 
-        <label>Username:</label>
-        <input type="text" name="username" required><br><br>
+        <form th:action="@{/userFrontpage}" method="post">
+            <label>Username:</label>
+            <input type="text" name="username" required />
 
-        <label>Password:</label>
-        <input type="password" name="password" required><br><br>
+            <label>Password:</label>
+            <input type="password" name="password" required />
 
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
+        </form>
 
         <div class="create-user">
-            <a href="/createUser">Create an account</a>
+            <a th:href="@{/createUser}">Create an account</a>
         </div>
 
-    </form>
-</div>
-
-<p th:if="${error}" style="color: red">Invalid username or password</p>
+        <p th:if="${error}" class="error">Invalid username or password</p>
+    </div>
+</main>
 </body>
 </html>
