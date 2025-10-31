@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -161,7 +162,14 @@ public class WishlistController {
         }
 
         List<Wishlist> wishlists = service.showWishlists(userID);
+        List<Wishlist> sharedWishlists = service.getSharedWishlists(userID);
+
+        if (sharedWishlists == null){
+            sharedWishlists = new ArrayList<>();
+        }
+
         model.addAttribute("wishlists", wishlists);
+        model.addAttribute("sharedWishlists", sharedWishlists);
         model.addAttribute("username", username);
         return "userFrontpage";
     }
@@ -209,5 +217,17 @@ public class WishlistController {
         Wishlist wishlist = service.findWishlistByID(wishlistID);
         service.deleteWishlistByID(wishlistID);
         return "redirect:/wishlists";
+    }
+
+    @GetMapping("/shareWishlist/{wishlistID}")
+    public String shareWishlist (@PathVariable int wishlistID, HttpSession session, Model model) {
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        model.addAttribute("wishlistID", wishlistID);
+        return "share";
     }
 }

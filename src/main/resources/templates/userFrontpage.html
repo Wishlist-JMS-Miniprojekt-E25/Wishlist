@@ -40,6 +40,11 @@
                 <button type="submit">Delete</button>
             </form>
         </td>
+        <td>
+        <a th:href="@{/shareWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}">
+            <button type="submit">Share</button>
+        </a>
+        </td>
     </tr>
 </table>
 
@@ -57,7 +62,22 @@
     <a href="/addWishFromUserFrontpage">Add wish</a>
 </div>
 
-<!-- tilføj knapper til at oprette og slette ønskelister her & log out knap -->
+<h2>Wishlists shared with you:</h2>
+<table>
+    <tr th:if="${sharedWishlists != null and !sharedWishlists.isEmpty()}">
+        <th>Wishlist</th> <!-- navnet på ønskelisten -->
+        <th>User</th> <!-- navnet på ejeren af ønskelisten -->
+    </tr>
+
+    <tr th:each="wishlist: ${sharedWishlists}">
+        <td><a th:href="@{/wishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" th:text="${wishlist.wishlistName}"></a></td>
+</table>
+
+<div th:if="${sharedWishlists == null or sharedWishlists.isEmpty()}">
+    <p>No wishlists have been shared with you.</p>
+</div>
+
+<!-- tilføj log out knap -->
 
 </body>
 </html>

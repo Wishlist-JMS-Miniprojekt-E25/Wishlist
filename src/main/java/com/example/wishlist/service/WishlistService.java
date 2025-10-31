@@ -72,4 +72,8 @@ public class WishlistService {
     public void updateWish (Wish wish){
         repository.updateWish(wish);
     }
+
+    public List<Wishlist> getSharedWishlists(int userID){
+        return repository.getSharedWishlists(userID);
+    }
 }

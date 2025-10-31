@@ -225,4 +225,17 @@ public class WishlistRepository {
         String sql = "DELETE FROM wishlist WHERE wishlistID = ?";
         jdbcTemplate.update(sql, wishlistID);
     }
+
+    public List<Wishlist> getSharedWishlists(int userID){
+        String sql = """
+                SELECT wl.wishlistID,
+                wl.wishlistName,
+                wl.userID
+                FROM wishlist wl
+                JOIN sharedWishlist s ON wl.wishlistID = s.wishlistID
+                WHERE s.userID = ?
+                """;
+
+        return jdbcTemplate.query(sql, wishlistRowMapper, userID);
+    }
 }
