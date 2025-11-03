@@ -68,3 +68,8 @@ INSERT INTO wish (wishlistID, wishName, description, link, price, isReserved)
 VALUES (6, 'Guitar', 'Akustisk Taylor 214ce', 'https://www.thomann.de', 9500, TRUE),
        (6, 'Music Lessons', '10 lektioner i guitar', 'https://musikskolen.dk', 2500, FALSE),
        (6, 'Concert Tickets', 'Billetter til Roskilde Festival', 'https://roskilde-festival.dk', 2800, FALSE);
+
+
+INSERT INTO sharedWishlist (userID, wishlistID)
+VALUES (3, 1),
+       (3, 2);
