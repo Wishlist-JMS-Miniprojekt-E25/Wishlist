@@ -86,10 +86,23 @@ public class WishlistController {
 
     //Viser siden der viser den enkelte ønskeliste.
     @GetMapping("/wishlist/{wishlistID}")
-    public String showWishlist(@PathVariable int wishlistID, Model model) {
+    public String showWishlist(@PathVariable int wishlistID, Model model, HttpSession session) {
 
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        Wishlist wishlist = service.findWishlistByID(wishlistID);
         List<Wish> wishes = service.showWishlist(wishlistID);
+        model.addAttribute("wishlist", wishlist);
         model.addAttribute("wishes", wishes);
+
+        // Sørger for at man kommer til gæst view, hvis det ikke er ens egen ønskeliste man besøger
+        if(userID == null || wishlist.getUserID() != userID){
+            return "wishlistGuest";
+        }
 
         return "wishlist";
     }
@@ -216,6 +229,7 @@ public class WishlistController {
 
         Wishlist wishlist = service.findWishlistByID(wishlistID);
         service.deleteWishlistByID(wishlistID);
+
         return "redirect:/wishlists";
     }
 
