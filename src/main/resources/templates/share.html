@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Share</title>
+    <link th:href="@{/css/share.css}" rel="stylesheet">
 </head>
 <body>
+    <form th:action="@{/saveShare/{wishlistID}(wishlistID=${wishlistID})}" method="post">
 
+        <label for="wishlist">Choose wishlist:</label>
+        <select id="wishlist" name="wishlistID" required>
+            <option value="">--Please select--</option>
+            <option th:each="wishlist : ${wishlists}"
+                    th:value="${wishlist.wishlistID}"
+                    th:text="${wishlist.wishlistName}"></option>
+        </select>
 
+        <br><br>
+
+        <label for="username">Share with user:</label>
+        <input type="text" id="username" name="username" required>
+
+        <br><br>
+
+        <button type="submit">Save</button>
+        <button type="button" onclick="window.location.href='/wishlists'">Cancel</button>
+</form>
 
 </body>
 </html>

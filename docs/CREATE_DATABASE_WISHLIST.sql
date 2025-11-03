@@ -58,3 +58,13 @@ CREATE TABLE wishWishlist
     wishlistID INT,
     FOREIGN KEY (wishlistID) references wishlist (wishlistID) ON DELETE CASCADE
 );
+
+CREATE TABLE sharedWishlist (
+    wishlistID INT,
+    FOREIGN KEY (wishlistID) REFERENCES wishlist(wishlistID) ON DELETE CASCADE,
+
+    userID INT,
+    FOREIGN KEY (userID) REFERENCES user(userID) ON DELETE CASCADE,
+
+    PRIMARY KEY (wishlistID, userID)
+);

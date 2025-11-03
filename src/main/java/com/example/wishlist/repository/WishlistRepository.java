@@ -226,16 +226,21 @@ public class WishlistRepository {
         jdbcTemplate.update(sql, wishlistID);
     }
 
-    public List<Wishlist> getSharedWishlists(int userID){
+    public List<Wishlist> getSharedWishlists(Integer userID){
         String sql = """
-                SELECT wl.wishlistID,
-                wl.wishlistName,
-                wl.userID
-                FROM wishlist wl
-                JOIN sharedWishlist s ON wl.wishlistID = s.wishlistID
-                WHERE s.userID = ?
+                SELECT sw.wishlistID,
+                sw.userID,
+                wl.wishlistName AS wishlistName
+                FROM sharedWishlist sw
+                JOIN wishlist wl ON sw.wishlistID = wl.wishlistID
+                WHERE sw.userID = ?
                 """;
 
         return jdbcTemplate.query(sql, wishlistRowMapper, userID);
+    }
+
+    public void shareWishlist (int wishlistID, int userID){
+        String sql = "INSERT INTO sharedWishlist (wishlistID, userID) VALUES (?, ?)";
+        jdbcTemplate.update(sql, wishlistID, userID);
     }
 }

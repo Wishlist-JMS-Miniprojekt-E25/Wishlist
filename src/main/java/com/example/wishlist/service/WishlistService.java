@@ -76,4 +76,8 @@ public class WishlistService {
     public List<Wishlist> getSharedWishlists(int userID){
         return repository.getSharedWishlists(userID);
     }
+
+    public void shareWishlist (int wishlistID, int userID){
+        repository.shareWishlist(wishlistID, userID);
+    }
 }

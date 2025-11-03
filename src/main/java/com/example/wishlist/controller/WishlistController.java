@@ -177,9 +177,7 @@ public class WishlistController {
         List<Wishlist> wishlists = service.showWishlists(userID);
         List<Wishlist> sharedWishlists = service.getSharedWishlists(userID);
 
-        if (sharedWishlists == null){
-            sharedWishlists = new ArrayList<>();
-        }
+
 
         model.addAttribute("wishlists", wishlists);
         model.addAttribute("sharedWishlists", sharedWishlists);
@@ -241,7 +239,25 @@ public class WishlistController {
             return "redirect:/";
         }
 
+        List<Wishlist> wishlists = service.showWishlists(userID);
+        model.addAttribute("wishlists", wishlists);
         model.addAttribute("wishlistID", wishlistID);
         return "share";
+    }
+
+    @PostMapping("/saveShare/{wishlistID}")
+    public String saveShare (@PathVariable int wishlistID, @RequestParam ("username") String username,
+                             HttpSession session){
+        Integer userID = (Integer) session.getAttribute("userID");
+
+        if (userID == null){
+            return "redirect:/";
+        }
+
+        Wishlist wishlist = service.findWishlistByID(wishlistID);
+        User targetUser = service.findUserByID(userID);
+
+        service.shareWishlist(wishlistID, targetUser.getUserID());
+        return "redirect:/wishlists";
     }
 }
