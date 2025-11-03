@@ -86,8 +86,9 @@ public class WishlistController {
     //Viser siden der viser den enkelte ønskeliste.
     @GetMapping("/wishlist/{wishlistID}")
     public String showWishlist(@PathVariable int wishlistID, Model model) {
-
+        Wishlist wishlist = service.findWishlistByID(wishlistID);
         List<Wish> wishes = service.showWishlist(wishlistID);
+        model.addAttribute("wishlist", wishlist);
         model.addAttribute("wishes", wishes);
 
         return "wishlist";

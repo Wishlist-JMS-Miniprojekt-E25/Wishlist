@@ -45,7 +45,7 @@ public class Wish {
         this.link = link;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

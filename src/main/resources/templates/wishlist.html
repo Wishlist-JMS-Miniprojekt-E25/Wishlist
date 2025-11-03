@@ -19,7 +19,7 @@
 
 <main>
     <section class="wishlist-section">
-        <h2>Your Wishlist</h2>
+        <h2 th:text="${wishlist.wishlistName}"></h2>
 
         <!-- Hvis der ikke er ønsker -->
         <div th:if="${wishes.isEmpty()}" class="empty-state">
