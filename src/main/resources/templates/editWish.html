@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit wish</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
+
 </head>
 <body>
-<header class="header">
-    <div class="container">
-        <div class="logo-row">
-            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
-            <h1 class="brand">Wishlist</h1>
-        </div>
-        <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wish.wishlistID})}" class="logout-btn">Back</a>
-    </div>
-</header>
+
+<div th:replace="fragments/header :: header"></div>
+
 
 <main>
     <div class="form-container">

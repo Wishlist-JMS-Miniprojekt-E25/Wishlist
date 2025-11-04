@@ -7,6 +7,7 @@ import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.model.Wish;
 import com.example.wishlist.repository.WishlistRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.List;
 
@@ -80,4 +81,15 @@ public class WishlistService {
     public void shareWishlist (int wishlistID, int userID){
         repository.shareWishlist(wishlistID, userID);
     }
+
+    public boolean isWishlistAlreadyShared(int wishlistID, int targetUserID) {
+        return repository.isWishlistAlreadyShared(wishlistID, targetUserID);
+    }
+
+    public void unshareWishlist(int wishlistID, int userID) {
+        repository.unshareWishlist(wishlistID, userID);
+    }
+
+
+
 }

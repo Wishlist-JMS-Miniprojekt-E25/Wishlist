@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${wish.wishName}"></title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
+
+
 </head>
 <body>
-<header class="header">
-    <div class="container">
-        <div class="logo-row">
-            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
-            <h1 class="brand">Wishlist</h1>
-        </div>
-        <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wish.wishlistID})}" class="logout-btn">Back</a>
-    </div>
-</header>
+<div th:replace="fragments/header :: header"></div>
 
 <main>
+    <div th:if="${!isOwner}" class="shared-info">
+        <p th:text="'You’re viewing a wish from ' + ${ownerName} + '’s shared wishlist.'"></p>
+    </div>
+
     <section class="wish-detail">
         <h2 th:text="${wish.wishName}"></h2>
 
@@ -30,11 +29,19 @@
         <a th:href="${wish.link}" target="_blank" class="btn-primary">Visit Website</a>
 
         <div class="button-row">
-            <a th:href="@{/edit/{wishID}(wishID=${wish.wishID})}" class="btn-primary">Edit wish</a>
-            <form th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post" class="inline-form">
+            <!-- Kun ejeren må se Edit og Delete -->
+            <a th:if="${isOwner}"
+               th:href="@{/edit/{wishID}(wishID=${wish.wishID})}"
+               class="btn-primary">Edit wish</a>
+
+            <form th:if="${isOwner}"
+                  th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}"
+                  method="post"
+                  class="inline-form">
                 <button type="submit" class="btn-primary">Delete wish</button>
             </form>
         </div>
+
     </section>
 </main>
 </body>

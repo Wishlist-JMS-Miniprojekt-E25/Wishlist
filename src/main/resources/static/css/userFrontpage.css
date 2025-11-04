@@ -1,97 +1,38 @@
-/* === GENERELT === */
-* {
-    box-sizing: border-box;
-}
+@import url("/static/css/layout.css");
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f8fa;
-}
-
-/* === HEADER === */
-.header {
-    width: 100%;
-    background: linear-gradient(133deg, rgba(31, 58, 77, 1) 0%, rgba(33, 130, 119, 1) 100%);
-    color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    padding: 12px 0;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo {
-    width: 45px;
-    height: 45px;
-}
-
-.brand {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0;
-}
-
-/* === HEADER KNAPPER === */
-.right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.welcome {
-    margin: 0 10px 0 0;
-}
-
-.logout-btn,
-.btn-primary {
-    padding: 8px 14px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: 0.2s ease;
-}
-
-.logout-btn {
-    background: rgba(255,255,255,0.2);
-}
-
-.logout-btn:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.btn-primary {
-    background: linear-gradient(133deg, rgba(31,58,77,1) 0%, rgba(33,130,119,1) 100%);
-}
-
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-/* === WISHLIST SEKTION === */
+/* === LAYOUT === */
 main {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
+/* === SECTIONS === */
 h2 {
     color: #1f3a4d;
     margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* + Add wishlist */
+.section-header .btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.section-header .btn-secondary:hover {
+    background: #d1d5db;
 }
 
 /* === GRID AF ØNSKELISTER === */
@@ -106,55 +47,41 @@ h2 {
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
 }
 
 .wishlist-card h3 {
     margin-top: 0;
     color: #1f3a4d;
+    margin-bottom: 15px;
 }
 
-/* === KNAPPER PÅ KORT === */
+/* === KNAPPER === */
 .button-row {
     display: flex;
     justify-content: flex-start;
     gap: 10px;
-    margin-top: 15px;
+    flex-wrap: wrap;
 }
 
-.btn-secondary,
-.btn-danger {
-    border: none;
-    padding: 8px 14px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.2s ease;
-    text-decoration: none;
+/* Delete button placeret til højre */
+.inline-form {
+    margin-left: auto; /* skubber delete helt til højre */
 }
 
-/* View wishlist */
-.btn-primary {
-    background: linear-gradient(133deg, rgba(31,58,77,1) 0%, rgba(33,130,119,1) 100%);
+.inline-form button {
+    background: #21726e;
     color: white;
 }
 
-/* Delete */
-.btn-danger {
-    background-color: #c62828;
-    color: white;
+.inline-form button:hover {
+    background: #21726e;
 }
 
-.btn-danger:hover {
-    background-color: #9b1f1f;
-}
-
-/* Add wishlist */
-.actions {
-    text-align: center;
-    margin-top: 30px;
-}
-
-/* Empty state */
+/* === EMPTY STATE === */
 .empty-state {
     text-align: center;
     color: #666;

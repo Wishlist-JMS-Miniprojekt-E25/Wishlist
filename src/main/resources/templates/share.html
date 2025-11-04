@@ -2,30 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Share</title>
-    <link th:href="@{/css/share.css}" rel="stylesheet">
+    <title>Share Wishlist - Wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/share.css}">
+
+
 </head>
 <body>
-    <form th:action="@{/saveShare/{wishlistID}(wishlistID=${wishlistID})}" method="post">
 
-        <label for="wishlist">Choose wishlist:</label>
-        <select id="wishlist" name="wishlistID" required>
-            <option value="">--Please select--</option>
-            <option th:each="wishlist : ${wishlists}"
-                    th:value="${wishlist.wishlistID}"
-                    th:text="${wishlist.wishlistName}"></option>
-        </select>
+<!-- Fælles header -->
+<div th:replace="fragments/header :: header"></div>
 
-        <br><br>
+<main>
+    <div class="share-box">
+        <h2>Share Wishlist</h2>
+        <form th:action="@{/saveShare/{id}(id=${wishlistID})}" method="post" th:object="${wishlist}" class="share-form">
+            <p><strong>Sharing wishlist:</strong> <span th:text="${wishlist.wishlistName}"></span></p>
 
-        <label for="username">Share with user:</label>
-        <input type="text" id="username" name="username" required>
+            <label for="targetUserID">Enter the user ID of the person to share with:</label>
+            <input type="number" id="targetUserID" name="targetUserID" min="1" required>
 
-        <br><br>
+            <div class="button-row">
+                <button type="submit" class="btn-primary">Share</button>
+                <a href="/userFrontpage" class="btn-secondary">Cancel</a>
+            </div>
 
-        <button type="submit">Save</button>
-        <button type="button" onclick="window.location.href='/userFrontpage'">Cancel</button>
-</form>
+            <p th:if="${successMessage}" th:text="${successMessage}" class="success"></p>
+            <p th:if="${errorMessage}" th:text="${errorMessage}" class="error"></p>
+        </form>
+    </div>
+</main>
 
 </body>
 </html>

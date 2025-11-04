@@ -3,19 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
     <link rel="stylesheet" th:href="@{/css/wishlistPages.css}">
 </head>
 
 <body>
-<header class="header">
-    <div class="container">
-        <div class="logo-row">
-            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
-            <h1 class="brand">Wishlist</h1>
-        </div>
-        <a href="/wishlists" class="logout-btn">Back</a>
-    </div>
-</header>
+<div th:replace="fragments/header :: header"></div>
 
 <main>
     <section class="wishlist-section">
@@ -34,18 +27,24 @@
 
                 <div class="button-row">
                     <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" class="btn-primary">View wish</a>
-                    <a th:href="@{/edit/{wishID}(wishID=${wish.wishID})}" class="btn-primary">Edit</a>
-                    <form th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post" class="inline-form">
-                        <button type="submit" class="btn-primary">Delete</button>
+
+                    <!-- Kun ejeren kan redigere og slette -->
+                    <a th:if="${isOwner}" th:href="@{/edit/{wishID}(wishID=${wish.wishID})}" class="btn-primary">Edit wish</a>
+
+                    <form th:if="${isOwner}" th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post" class="inline-form">
+                        <button type="submit" class="btn-primary delete-btn">Delete wish</button>
                     </form>
                 </div>
+
+
             </div>
         </div>
 
-        <!-- Tilføj nyt ønske -->
-        <div class="actions">
-            <a th:href="@{/addWishFromWishlist/{id}(id=${wishlistID})}" class="btn-primary">+ Add wish</a>
+        <!-- Kun ejeren må tilføje nye ønsker -->
+        <div class="actions" th:if="${isOwner}">
+            <a th:href="@{/addWishFromWishlist/{id}(id=${wishlist.wishlistID})}" class="btn-primary">+ Add wish</a>
         </div>
+
     </section>
 </main>
 </body>

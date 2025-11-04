@@ -226,21 +226,37 @@ public class WishlistRepository {
         jdbcTemplate.update(sql, wishlistID);
     }
 
-    public List<Wishlist> getSharedWishlists(Integer userID){
+    public List<Wishlist> getSharedWishlists(Integer userID) {
         String sql = """
-                SELECT sw.wishlistID,
-                sw.userID,
-                wl.wishlistName AS wishlistName
-                FROM sharedWishlist sw
-                JOIN wishlist wl ON sw.wishlistID = wl.wishlistID
-                WHERE sw.userID = ?
-                """;
+        SELECT 
+            wl.wishlistID,
+            wl.wishlistName,
+            wl.userID
+        FROM sharedWishlist sw
+        JOIN wishlist wl ON sw.wishlistID = wl.wishlistID
+        WHERE sw.userID = ?
+        """;
 
         return jdbcTemplate.query(sql, wishlistRowMapper, userID);
     }
+
 
     public void shareWishlist (int wishlistID, int userID){
         String sql = "INSERT INTO sharedWishlist (wishlistID, userID) VALUES (?, ?)";
         jdbcTemplate.update(sql, wishlistID, userID);
     }
+
+    //tjekker om man allerede har samme delte ønskeliste 2 gange
+    public boolean isWishlistAlreadyShared(int wishlistID, int targetUserID) {
+        String sql = "SELECT COUNT(*) FROM sharedWishlist WHERE wishlistID = ? AND userID = ?";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class, wishlistID, targetUserID);
+        return count != null && count > 0;
+    }
+
+    public void unshareWishlist(int wishlistID, int userID) {
+        String sql = "DELETE FROM sharedWishlist WHERE wishlistID = ? AND userID = ?";
+        jdbcTemplate.update(sql, wishlistID, userID);
+    }
+
+
 }
