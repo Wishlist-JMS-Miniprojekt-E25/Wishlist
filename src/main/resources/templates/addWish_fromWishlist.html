@@ -1,47 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add wish</title>
+    <title>Add Wish</title>
+    <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
 </head>
 <body>
+<header class="header">
+    <div class="container">
+        <div class="logo-row">
+            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
+            <h1 class="brand">Wishlist</h1>
+        </div>
+        <a th:href="@{/wishlist/{id}(id=${wish.wishlistID})}" class="logout-btn">Back</a>
+    </div>
+</header>
 
-<h1>Add wish</h1>
+<main>
+    <div class="form-container">
+        <h2>Add Wish</h2>
 
-<form th:action="@{/saveWish}" th:object="${wish}" method="post">
-    <input type="hidden" th:field="*{wishlistID}">
+        <form th:action="@{/saveWish}" th:object="${wish}" method="post">
+            <input type="hidden" th:field="*{wishlistID}" />
 
-    <label>Name:</label>
-    <label>
-        <input type="text" th:field="*{wishName}" required>
-    </label>
+            <label>Name:</label>
+            <input type="text" th:field="*{wishName}" required />
 
-    <br><br>
+            <label>Description:</label>
+            <input type="text" th:field="*{description}" />
 
-    <label>Description:</label>
-    <label>
-        <input type="text" th:field="*{description}">
-    </label>
+            <label>Link:</label>
+            <input type="text" th:field="*{link}" />
 
-    <br><br>
+            <label>Price:</label>
+            <input type="text" th:field="*{price}" />
 
-    <label>Link:</label>
-    <label>
-        <input type="text" th:field="*{link}">
-    </label>
-
-    <br><br>
-
-    <label>Price:</label>
-
-    <label>
-        <input type="text" th:field="*{price}">
-    </label>
-
-    <br><br>
-
-    <button type="submit">Save</button>
-    <a th:href="@{/wishlist/{id}(id=${wish.wishlistID})}" class="Cancel-button">Cancel</a>
-</form>
+            <div class="button-row">
+                <button type="submit" class="btn-primary">Save</button>
+                <a th:href="@{/wishlist/{id}(id=${wish.wishlistID})}" class="btn-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
 </body>
 </html>

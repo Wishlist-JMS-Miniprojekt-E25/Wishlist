@@ -3,37 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${wish.wishName}"></title>
-    <link th:href="@{/css/wish.css}" rel="stylesheet">
+    <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
 </head>
 <body>
-    <h1 th:text="${wish.wishName}"></h1>
+<header class="header">
+    <div class="container">
+        <div class="logo-row">
+            <img th:src="@{/images/wishlist-logo.png}" alt="Wishlist logo" class="logo" />
+            <h1 class="brand">Wishlist</h1>
+        </div>
+        <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wish.wishlistID})}" class="logout-btn">Back</a>
+    </div>
+</header>
 
-    <div>
-        <p><strong>Description</strong></p>
+<main>
+    <section class="wish-detail">
+        <h2 th:text="${wish.wishName}"></h2>
+
+        <p><strong>Description:</strong></p>
         <p th:text="${wish.description}"></p>
 
-        <p><strong>Price</strong></p>
+        <p><strong>Price:</strong></p>
         <p th:text="${wish.price} + ' DKK'"></p>
 
-        <p><strong>Link</strong></p>
-        <p>
-            <a th:href="${wish.link}" target="_blank">
-                <button type="button">Visit Website</button>
-            </a>
-        </p>
-    </div>
+        <p><strong>Link:</strong></p>
+        <a th:href="${wish.link}" target="_blank" class="btn-primary">Visit Website</a>
 
-    <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wish.wishlistID})}">
-        <button>Back to wishlist</button>
-    </a>
-
-    <div>
-        <a th:href="@{/edit/{wishID}(wishID=${wish.wishID})}">
-            <button>Edit wish</button>
-        </a>
-    </div>
-
-<!-- tilføj knap til slet ønske -->
-
+        <div class="button-row">
+            <a th:href="@{/edit/{wishID}(wishID=${wish.wishID})}" class="btn-primary">Edit wish</a>
+            <form th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post" class="inline-form">
+                <button type="submit" class="btn-primary">Delete wish</button>
+            </form>
+        </div>
+    </section>
+</main>
 </body>
 </html>

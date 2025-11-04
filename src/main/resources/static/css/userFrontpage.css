@@ -1,0 +1,162 @@
+/* === GENERELT === */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f8fa;
+}
+
+/* === HEADER === */
+.header {
+    width: 100%;
+    background: linear-gradient(133deg, rgba(31, 58, 77, 1) 0%, rgba(33, 130, 119, 1) 100%);
+    color: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    padding: 12px 0;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+
+/* === HEADER KNAPPER === */
+.right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome {
+    margin: 0 10px 0 0;
+}
+
+.logout-btn,
+.btn-primary {
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.logout-btn {
+    background: rgba(255,255,255,0.2);
+}
+
+.logout-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(133deg, rgba(31,58,77,1) 0%, rgba(33,130,119,1) 100%);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* === WISHLIST SEKTION === */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: #1f3a4d;
+    margin-bottom: 25px;
+}
+
+/* === GRID AF ØNSKELISTER === */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.wishlist-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+}
+
+.wishlist-card h3 {
+    margin-top: 0;
+    color: #1f3a4d;
+}
+
+/* === KNAPPER PÅ KORT === */
+.button-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-secondary,
+.btn-danger {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    text-decoration: none;
+}
+
+/* View wishlist */
+.btn-primary {
+    background: linear-gradient(133deg, rgba(31,58,77,1) 0%, rgba(33,130,119,1) 100%);
+    color: white;
+}
+
+/* Delete */
+.btn-danger {
+    background-color: #c62828;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #9b1f1f;
+}
+
+/* Add wishlist */
+.actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}

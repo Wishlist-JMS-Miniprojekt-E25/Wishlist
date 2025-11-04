@@ -95,6 +95,8 @@ public class WishlistController {
         }
 
         Wishlist wishlist = service.findWishlistByID(wishlistID);
+    public String showWishlist(@PathVariable int wishlistID, Model model) {
+        Wishlist wishlist = service.findWishlistByID(wishlistID);
         List<Wish> wishes = service.showWishlist(wishlistID);
         model.addAttribute("wishlist", wishlist);
         model.addAttribute("wishes", wishes);
