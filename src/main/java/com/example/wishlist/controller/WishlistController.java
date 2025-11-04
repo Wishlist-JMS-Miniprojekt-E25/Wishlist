@@ -22,7 +22,7 @@ import java.util.List;
 public class WishlistController {
     private final WishlistService service;
 
-    public WishlistController(WishlistService service){
+    public WishlistController(WishlistService service) {
         this.service = service;
     }
 
@@ -41,7 +41,7 @@ public class WishlistController {
 
         User loggedInUser = service.findUserByCredentials(username, password);
 
-        if (loggedInUser != null){
+        if (loggedInUser != null) {
             session.setAttribute("userID", loggedInUser.getUserID());
             session.setAttribute("username", loggedInUser.getUserName());
 
@@ -76,7 +76,7 @@ public class WishlistController {
     }
 
     @GetMapping("/wish/{wishID}")
-    public String showWish (@PathVariable int wishID, Model model){
+    public String showWish(@PathVariable int wishID, Model model) {
         Wish wish = service.findWishByID(wishID);
 
         model.addAttribute("wish", wish);
@@ -86,25 +86,11 @@ public class WishlistController {
 
     //Viser siden der viser den enkelte ønskeliste.
     @GetMapping("/wishlist/{wishlistID}")
-    public String showWishlist(@PathVariable int wishlistID, Model model, HttpSession session) {
-
-        Integer userID = (Integer) session.getAttribute("userID");
-
-        if (userID == null){
-            return "redirect:/";
-        }
-
-        Wishlist wishlist = service.findWishlistByID(wishlistID);
     public String showWishlist(@PathVariable int wishlistID, Model model) {
         Wishlist wishlist = service.findWishlistByID(wishlistID);
         List<Wish> wishes = service.showWishlist(wishlistID);
         model.addAttribute("wishlist", wishlist);
         model.addAttribute("wishes", wishes);
-
-        // Sørger for at man kommer til gæst view, hvis det ikke er ens egen ønskeliste man besøger
-        if(userID == null || wishlist.getUserID() != userID){
-            return "wishlistGuest";
-        }
 
         return "wishlist";
     }
@@ -114,7 +100,7 @@ public class WishlistController {
     public String addWishFromUserFrontpage(HttpSession session, Model model) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -144,7 +130,7 @@ public class WishlistController {
     public String addWishlist(HttpSession session, Model model) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -158,7 +144,7 @@ public class WishlistController {
     public String saveWishlist(@ModelAttribute Wishlist wishlist, HttpSession session) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -168,17 +154,16 @@ public class WishlistController {
     }
 
     @GetMapping("/wishlists")
-    public String showUsersWishlists(HttpSession session, Model model){
+    public String showUsersWishlists(HttpSession session, Model model) {
         Integer userID = (Integer) session.getAttribute("userID");
         String username = (String) session.getAttribute("username");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
         List<Wishlist> wishlists = service.showWishlists(userID);
         List<Wishlist> sharedWishlists = service.getSharedWishlists(userID);
-
 
 
         model.addAttribute("wishlists", wishlists);
@@ -188,7 +173,7 @@ public class WishlistController {
     }
 
     @GetMapping("edit/{wishID}")
-    public String editWish(@PathVariable int wishID, Model model){
+    public String editWish(@PathVariable int wishID, Model model) {
         Wish wish = service.findWishByID(wishID);
 
         model.addAttribute("wish", wish);
@@ -197,11 +182,11 @@ public class WishlistController {
     }
 
     @PostMapping("/update")
-    public String updateWish(@ModelAttribute Wish wish, RedirectAttributes redirectAttributes, HttpSession session){
+    public String updateWish(@ModelAttribute Wish wish, RedirectAttributes redirectAttributes, HttpSession session) {
 
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -223,7 +208,7 @@ public class WishlistController {
     public String deleteWishlist(@PathVariable int wishlistID, HttpSession session) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -234,10 +219,10 @@ public class WishlistController {
     }
 
     @GetMapping("/shareWishlist/{wishlistID}")
-    public String shareWishlist (@PathVariable int wishlistID, HttpSession session, Model model) {
+    public String shareWishlist(@PathVariable int wishlistID, HttpSession session, Model model) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
@@ -248,11 +233,11 @@ public class WishlistController {
     }
 
     @PostMapping("/saveShare/{wishlistID}")
-    public String saveShare (@PathVariable int wishlistID, @RequestParam ("username") String username,
-                             HttpSession session){
+    public String saveShare(@PathVariable int wishlistID, @RequestParam("username") String username,
+                            HttpSession session) {
         Integer userID = (Integer) session.getAttribute("userID");
 
-        if (userID == null){
+        if (userID == null) {
             return "redirect:/";
         }
 
