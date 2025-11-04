@@ -258,6 +258,6 @@ public class WishlistController {
         User targetUser = service.findUserByID(userID);
 
         service.shareWishlist(wishlistID, targetUser.getUserID());
-        return "redirect:/wishlists";
+        return "redirect:/userFrontpage";
     }
 }

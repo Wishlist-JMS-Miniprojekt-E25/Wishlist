@@ -64,7 +64,6 @@ CREATE TABLE sharedWishlist (
     FOREIGN KEY (wishlistID) REFERENCES wishlist(wishlistID) ON DELETE CASCADE,
 
     userID INT,
-    FOREIGN KEY (userID) REFERENCES user(userID) ON DELETE CASCADE,
+    FOREIGN KEY (userID) REFERENCES user(userID) ON DELETE CASCADE
 
-    PRIMARY KEY (wishlistID, userID)
 );
