@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Add wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
+
+
 </head>
 <body>
-<h1>Add wishlist</h1>
 
-<form th:action="@{/saveWishlist}" th:object="${wishlist}" method="post">
+<div th:replace="fragments/header :: header"></div>
 
-    <label>Name:</label>
-    <label>
-        <input type="text" th:field="*{wishlistName}" required>
-    </label>
+<main>
+    <div class="form-container">
+        <h2>Add Wishlist</h2>
 
-    <br><br>
+        <form th:action="@{/saveWishlist}" th:object="${wishlist}" method="post">
+            <label>Name:</label>
+            <input type="text" th:field="*{wishlistName}" required />
 
-    <button type="submit">Save</button>
-    <button type="button" onclick="window.location.href='/wishlists'">Cancel</button>
-</form>
+            <div class="button-row">
+                <button type="submit" class="btn-primary">Save</button>
+                <a href="/wishlists" class="btn-primary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</main>
 </body>
 </html>

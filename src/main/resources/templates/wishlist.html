@@ -3,50 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/wishlistPages.css}">
 </head>
+
 <body>
+<div th:replace="fragments/header :: header"></div>
 
-<table>
-    <tr th:if="${wishes.isEmpty()}">Wishlist is empty</tr>
-    <tr th:if="${!wishes.isEmpty()}">
-        <th></th>
-        <th></th>
-        <th></th>
-    </tr>
+<main>
+    <section class="wishlist-section">
+        <h2 th:text="${wishlist.wishlistName}"></h2>
 
-    <tr th:each="wish: ${wishes}">
-        <td><a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" th:text="${wish.wishName}"></a></td>
-        <td th:text="${wish.price}"></td>
-        <td>
-            <form th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
-</table>
+        <!-- Hvis der ikke er ønsker -->
+        <div th:if="${wishes.isEmpty()}" class="empty-state">
+            <p>This wishlist is empty.</p>
+        </div>
 
-<div>
-    <a th:href="@{/addWishFromWishlist/{id}(id=${wishlistID})}">
-        <button>Add wish</button>
-    </a>
-</div>
+        <!-- Viser alle ønsker -->
+        <div th:if="${!wishes.isEmpty()}" class="wish-grid">
+            <div th:each="wish : ${wishes}" class="wish-card">
+                <h3 th:text="${wish.wishName}"></h3>
+                <p th:text="${wish.price} + ' DKK'"></p>
 
-<div>
-    <a th:href="@{/wishlists}">
-        <button>Back to frontpage</button>
-    </a>
-</div>
+                <div class="button-row">
+                    <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" class="btn-primary">View wish</a>
 
-<!--
-<div th:if="${!wishes.isEmpty()}">
-    <ul>
-        <li th:each="wish: ${wishes}">
-            <a th:href="@{/wish/{wishID}(wishID=${wish.wishID})}" th:text="${wish.wishName}"></a>
-            <p th:text="${wish.price}"> </p>
-        </li>
-    </ul>
-</div>
-<div th:if="${wishes.isEmpty()}">Wishlist is empty</div>
--->
+                    <!-- Kun ejeren kan redigere og slette -->
+                    <a th:if="${isOwner}" th:href="@{/edit/{wishID}(wishID=${wish.wishID})}" class="btn-primary">Edit wish</a>
+
+                    <form th:if="${isOwner}" th:action="@{/deleteWish/{wishID}(wishID=${wish.wishID})}" method="post" class="inline-form">
+                        <button type="submit" class="btn-primary delete-btn">Delete wish</button>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+        <!-- Kun ejeren må tilføje nye ønsker -->
+        <div class="actions" th:if="${isOwner}">
+            <a th:href="@{/addWishFromWishlist/{id}(id=${wishlist.wishlistID})}" class="btn-primary">+ Add wish</a>
+        </div>
+
+    </section>
+</main>
 </body>
 </html>

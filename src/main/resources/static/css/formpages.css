@@ -1,0 +1,14 @@
+@import url("/static/css/layout.css");
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.form-container h2 {
+    color: #1f3a4d;
+    text-align: center;
+    margin-bottom: 25px;
+}

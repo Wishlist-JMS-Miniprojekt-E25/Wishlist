@@ -3,23 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Create an Account</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link th:href="@{/css/wishlistPages.css}" rel="stylesheet">
+
 </head>
 <body>
-<div class="accountCreationTable">
-    <h2>Create an account</h2>
+<div th:replace="fragments/header :: header"></div>
 
-    <form th:action="@{/save}" th:object="${user}" method="post">
 
-        <label>Username:</label>
-        <input type="text" th:field="*{userName}" required><br><br>
+<main>
+    <div class="form-container">
+        <h2>Create Account</h2>
 
-        <label>Password:</label>
-        <input type="password" th:field="*{password}" required><br><br>
+        <form th:action="@{/save}" th:object="${user}" method="post">
+            <label>Username:</label>
+            <input type="text" th:field="*{userName}" required />
 
-        <button type="submit">Create account</button>
-    </form>
+            <label>Password:</label>
+            <input type="password" th:field="*{password}" required />
 
-    <p><a href="/">Already have an account? Log in</a></p>
-</div>
+            <div class="button-row">
+                <button type="submit" class="btn-primary">Create account</button>
+                <a href="/" class="btn-primary">Cancel</a>
+            </div>
+        </form>
+
+        <p style="text-align:center; margin-top:10px;">
+            <a href="/" style="color:#218277; text-decoration:none;">Already have an account? Log in</a>
+        </p>
+    </div>
+</main>
 </body>
 </html>

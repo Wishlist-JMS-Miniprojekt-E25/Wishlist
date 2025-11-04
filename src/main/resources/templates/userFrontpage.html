@@ -2,62 +2,66 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your wishlists</title>
-    <link th:href="@{/css/userFrontpage.css}" rel="stylesheet">
+    <title>Your Wishlists - Wishlist</title>
+    <link rel="stylesheet" th:href="@{/css/layout.css}">
+    <link rel="stylesheet" th:href="@{/css/userFrontpage.css}">
+
+
 </head>
+
 <body>
-<h1 th:text="'Welcome, ' + ${username} + '!'"></h1>
+<div th:replace="fragments/header :: header"></div>
 
-    <!-- tjekker om der er nogen ønskelister, og itererer så gemmen dem, hvis de er der -->
-<h2>Your Wishlists:</h2>
-<!--
-    <div th:if="${!wishlists.isEmpty()}">
-        <ul>
-            <li th:each="wishlist : ${wishlists}">
-                <a th:href="@{'/wishlist/' + ${wishlist.wishlistID}}"
-                   th:text="${wishlist.wishlistName}"
-                ></a>
-                <form th:action="@{/deleteWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post">
-                    <button type="submit">Delete</button>
-                </form>
-            </li>
+<main>
+    <!-- Mine ønskelister -->
+    <section class="wishlists-section">
+        <div class="section-header">
+            <h2>Your Wishlists</h2>
+            <a href="/addWishlist" class="btn-secondary">+ Add wishlist</a>
+        </div>
+
+        <div th:if="${wishlists.isEmpty()}" class="empty-state">
+            <p>You don’t have any wishlists yet.</p>
+        </div>
+
+        <div th:if="${!wishlists.isEmpty()}" class="wishlist-grid">
+            <div th:each="wishlist : ${wishlists}" class="wishlist-card">
+                <h3 th:text="${wishlist.wishlistName}"></h3>
+                <div class="button-row">
+                    <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" class="btn-primary">View wishlist</a>
+                    <a th:href="@{/shareWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" class="btn-primary">Share</a>
+                    <form th:action="@{/deleteWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post" class="inline-form">
+                        <button type="submit" class="btn-primary delete-btn">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delte ønskelister -->
+    <section class="shared-section">
+        <h2>Wishlists shared with you</h2>
+
+        <div th:if="${sharedWishlists == null or sharedWishlists.isEmpty()}" class="empty-state">
+            <p>No wishlists have been shared with you.</p>
+        </div>
+
+        <div th:if="${sharedWishlists != null and !sharedWishlists.isEmpty()}" class="wishlist-grid">
+            <div th:each="wishlist : ${sharedWishlists}" class="wishlist-card">
+                <h3 th:text="${wishlist.wishlistName}"></h3>
+                <div class="button-row">
+                    <a th:href="@{/wishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" class="btn-primary">View wishlist</a>
+
+                    <form th:action="@{/unshareWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post" class="inline-form">
+                        <button type="submit" class="btn-primary delete-btn">Remove</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-        </ul>
-    </div>
-    -->
 
-<table>
-    <tr th:if="${!wishlists.isEmpty()}">
-        <th></th>
-        <th></th>
-    </tr>
-
-    <tr th:each="wishlist: ${wishlists}">
-        <td><a th:href="@{/wishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" th:text="${wishlist.wishlistName}"></a></td>
-        <td>
-            <form th:action="@{/deleteWishlist/{wishlistID}(wishlistID=${wishlist.wishlistID})}" method="post">
-                <button type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
-</table>
-
-
-    <!-- Hvis der ikke er nogen ønskelister, så får man besked om dette -->
-    <div th:if="${wishlists.isEmpty()}">
-        <p>There are no wishlists.</p>
-    </div>
-
-<div>
-    <a href="/addWishlist">Add wishlist</a>
-</div>
-
-<div>
-    <a href="/addWishFromUserFrontpage">Add wish</a>
-</div>
-
-<!-- tilføj knapper til at oprette og slette ønskelister her & log out knap -->
-
+</main>
 </body>
 </html>

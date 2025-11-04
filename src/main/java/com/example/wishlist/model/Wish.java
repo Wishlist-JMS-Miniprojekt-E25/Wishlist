@@ -6,10 +6,10 @@ public class Wish {
     private String wishName;
     private String description;
     private String link;
-    private int price;
+    private Integer price;
     private boolean isReserved;
 
-    public Wish(int wishID, Integer wishlistID, String wishName, String description, String link, int price) {
+    public Wish(int wishID, Integer wishlistID, String wishName, String description, String link, Integer price) {
         this.wishID = wishID;
         this.wishlistID = wishlistID;
         this.wishName = wishName;
@@ -45,11 +45,11 @@ public class Wish {
         this.link = link;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 

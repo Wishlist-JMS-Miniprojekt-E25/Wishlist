@@ -1,0 +1,25 @@
+@import url("/static/css/layout.css");
+
+/* === SHARE PAGE SPECIFIC === */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+}
+
+.share-box h2 {
+    text-align: center;
+    color: #1f3a4d;
+    margin-bottom: 20px;
+}
+
+.share-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.share-form p {
+    font-weight: 500;
+    margin-bottom: 10px;
+}

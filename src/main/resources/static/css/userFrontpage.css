@@ -1,0 +1,89 @@
+@import url("/static/css/layout.css");
+
+/* === LAYOUT === */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* === SECTIONS === */
+h2 {
+    color: #1f3a4d;
+    margin-bottom: 25px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* + Add wishlist */
+.section-header .btn-secondary {
+    background: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 8px 14px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.section-header .btn-secondary:hover {
+    background: #d1d5db;
+}
+
+/* === GRID AF ØNSKELISTER === */
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.wishlist-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.wishlist-card h3 {
+    margin-top: 0;
+    color: #1f3a4d;
+    margin-bottom: 15px;
+}
+
+/* === KNAPPER === */
+.button-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Delete button placeret til højre */
+.inline-form {
+    margin-left: auto; /* skubber delete helt til højre */
+}
+
+.inline-form button {
+    background: #21726e;
+    color: white;
+}
+
+.inline-form button:hover {
+    background: #21726e;
+}
+
+/* === EMPTY STATE === */
+.empty-state {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}
