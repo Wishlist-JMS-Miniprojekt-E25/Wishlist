@@ -185,27 +185,42 @@ public class WishlistController {
     //Viser siden med formen for at tilføje et ønske til en ønskeliste.
     @GetMapping("/addWishFromUserFrontpage")
     public String addWishFromUserFrontpage(HttpSession session, Model model) {
-        Integer userID = (Integer) session.getAttribute("userID");
+        Integer currentUserID = (Integer) session.getAttribute("userID");
 
-        if (userID == null) {
+        if (currentUserID == null) {
             return "redirect:/";
         }
 
         Wish wish = new Wish();
-        List<Wishlist> wishlists = service.showWishlists(userID);
+        List<Wishlist> wishlists = service.showWishlists(currentUserID);
+
+
         model.addAttribute("wish", wish);
         model.addAttribute("wishlists", wishlists);
         model.addAttribute("showBack", true);
         model.addAttribute("backLink", "/userFrontpage");
+        model.addAttribute("userID", currentUserID);
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("showAddWish", true);
+
         return "addWish_fromUserFrontpage";
     }
 
     @GetMapping("/addWishFromWishlist/{wishlistID}")
-    public String addWishFromWishlist(@PathVariable Integer wishlistID, Model model) {
+    public String addWishFromWishlist(@PathVariable Integer wishlistID, Model model, HttpSession session) {
+        Integer currentUserID = (Integer) session.getAttribute("userID");
+
+        if (currentUserID == null) {
+            return "redirect:/";
+        }
+
         Wish wish = new Wish();
         wish.setWishlistID(wishlistID);
         model.addAttribute("wish", wish);
         model.addAttribute("showBack", true);
+        model.addAttribute("userID", currentUserID);
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("showAddWish", true);
         model.addAttribute("backLink", "/userFrontpage");
         return "addWish_fromWishlist";
     }
@@ -246,7 +261,13 @@ public class WishlistController {
 
 
     @GetMapping("edit/{wishID}")
-    public String editWish(@PathVariable int wishID, Model model) {
+    public String editWish(@PathVariable int wishID, Model model, HttpSession session) {
+        Integer currentUserID = (Integer) session.getAttribute("userID");
+
+        if (currentUserID == null) {
+            return "redirect:/";
+        }
+
         Wish wish = service.findWishByID(wishID);
 
         model.addAttribute("wish", wish);
@@ -254,6 +275,10 @@ public class WishlistController {
         model.addAttribute("pageTitle", "Edit wish");
         model.addAttribute("showAddWish", true);
         model.addAttribute("showBack", true);
+        model.addAttribute("backLink", "/userFrontpage");
+        model.addAttribute("userID", currentUserID);
+        model.addAttribute("username", session.getAttribute("username"));
+        model.addAttribute("showAddWish", true);
         model.addAttribute("backLink", "/userFrontpage");
 
         return "editWish";
