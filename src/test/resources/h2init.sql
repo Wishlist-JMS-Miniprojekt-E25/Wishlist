@@ -1,6 +1,4 @@
 -- Drop eksisterende tabeller hvis de findes (så scriptet kan køres igen uden fejl)
-CREATE SCHEMA IF NOT EXISTS wishlist;
-SET SCHEMA wishlist;
 
 DROP TABLE IF EXISTS sharedWishlist;
 DROP TABLE IF EXISTS wishWishlist;
@@ -70,24 +68,24 @@ CREATE TABLE sharedWishlist (
 
 INSERT INTO `user` (userName, password)
 VALUES ('Test User', '1234'),
-       ('Test User 2', 'abcd'),
+       ('Test User 2', 'abcd');
 
 INSERT INTO wishlist (userID, wishlistName)
 VALUES (1, 'Test wishlist'),
-VALUES (2, 'Test wishlist 2'),
+VALUES (2, 'Test wishlist 2');
 
 INSERT INTO userWishlist (userID, wishlistID)
 VALUES (1, 1),
-VALUES (2, 2),
+VALUES (2, 2);
 
 
 -- Test data
 INSERT INTO wish (wishlistID, wishName, description, link, price, isReserved)
-VALUES (1, 'Test wish', 'Test wish description', 'test.dk', 2500, FALSE),
+VALUES (1, 'Test wish', 'Test wish description', 'test.dk', 2500, FALSE);
 
 INSERT INTO wish (wishlistID, wishName, description, link, price, isReserved)
-VALUES (2, 'Test wish 2', 'Test wish description 2', 'test2.dk', 800, FALSE),
+VALUES (2, 'Test wish 2', 'Test wish description 2', 'test2.dk', 800, FALSE);
 
 
 INSERT INTO sharedWishlist (userID, wishlistID)
-VALUES (1, 2),
+VALUES (1, 2);
