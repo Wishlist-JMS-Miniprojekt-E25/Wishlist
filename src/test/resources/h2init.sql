@@ -68,7 +68,6 @@ CREATE TABLE sharedWishlist (
 
 );
 
--- Test data
 INSERT INTO `user` (userName, password)
 VALUES ('Test User', '1234'),
        ('Test User 2', 'abcd'),
@@ -81,6 +80,8 @@ INSERT INTO userWishlist (userID, wishlistID)
 VALUES (1, 1),
 VALUES (2, 2),
 
+
+-- Test data
 INSERT INTO wish (wishlistID, wishName, description, link, price, isReserved)
 VALUES (1, 'Test wish', 'Test wish description', 'test.dk', 2500, FALSE),
 

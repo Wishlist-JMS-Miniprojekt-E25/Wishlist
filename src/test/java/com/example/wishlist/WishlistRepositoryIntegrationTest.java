@@ -1,6 +1,7 @@
 package com.example.wishlist;
 
 import com.example.wishlist.model.User;
+import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.WishlistRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,15 @@ import static org.springframework.test.context.jdbc.Sql.ExecutionPhase.BEFORE_TE
 public class WishlistRepositoryIntegrationTest {
     @Autowired
     private WishlistRepository repository;
+
+    @Test
+    void testReadAllAttractions() {
+        List<Wishlist> all = repository.showWishlists(1);
+
+        assertThat(all).isNotNull();
+        assertThat(all.size()).isEqualTo(1);
+        assertThat(all.get(0).getWishlistName()).isEqualTo("Test Wishlist");
+    }
 
     @Test
     void insertAndReadBack() {
