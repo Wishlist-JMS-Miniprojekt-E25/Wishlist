@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS wishWishlist;
 DROP TABLE IF EXISTS wish;
 DROP TABLE IF EXISTS userWishlist;
 DROP TABLE IF EXISTS wishlist;
-DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS `user`;
 
 
 -- Opret tabeller

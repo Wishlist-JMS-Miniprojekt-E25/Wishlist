@@ -23,14 +23,14 @@ public class WishlistRepositoryIntegrationTest {
     @Test
     void insertAndReadBack() {
         // Inserter en ny user
-        User saved = repository.addUser("Test User", "passwordtest");
+        User saved = repository.addUser("Test User", "1234");
 
         // Henter den tilbage via ID
         User found = repository.findUserByID(saved.getUserID());
 
         // Assertions
         assertThat(found.getUserName()).isEqualTo("Test User");
-        assertThat(found.getPassword()).isEqualTo("passwordtest");
+        assertThat(found.getPassword()).isEqualTo("1234");
         assertThat(found.getUserID()).isEqualTo(4);
     }
 }
