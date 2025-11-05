@@ -390,10 +390,6 @@ public class WishlistController {
         return "redirect:/userFrontpage";
     }
 
-
-
-
-
     @PostMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate(); // Sletter sessionen
