@@ -32,12 +32,11 @@ public class WishlistRepositoryIntegrationTest {
 
     @Test
     void insertAndReadBack() {
-        User saved = repository.addUser("Test User", "1234");
-        saved.setUserID(1);
-        User found = repository.findUserByID(saved.getUserID());
+        Wishlist wishlist = repository.addWishlist("Test wishlist", 1);
+        Wishlist foundWishlist = repository.findWishlistByID(wishlist.getWishlistID());
 
-        assertThat(found).isNotNull();
-        assertThat(found.getUserName()).isEqualTo("Test User");
-        assertThat(found.getPassword()).isEqualTo("1234");
+        assertThat(foundWishlist).isNotNull();
+        assertThat(foundWishlist.getWishlistName()).isEqualTo("Test wishlist");
+        assertThat(foundWishlist.getUserID()).isEqualTo(1);
     }
 }
