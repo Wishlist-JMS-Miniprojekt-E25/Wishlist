@@ -1,7 +1,5 @@
 package com.example.wishlist.model;
 
-import java.util.List;
-
 public class User {
     private String userName;
     private String password;

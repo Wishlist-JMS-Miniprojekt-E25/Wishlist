@@ -1,6 +1,5 @@
 package com.example.wishlist;
 
-import com.example.wishlist.model.User;
 import com.example.wishlist.model.Wishlist;
 import com.example.wishlist.repository.WishlistRepository;
 import org.junit.jupiter.api.Test;
