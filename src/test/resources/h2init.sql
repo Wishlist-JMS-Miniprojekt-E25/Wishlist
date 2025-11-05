@@ -71,12 +71,14 @@ VALUES ('Test User', '1234'),
        ('Test User 2', 'abcd');
 
 INSERT INTO wishlist (userID, wishlistName)
-VALUES (1, 'Test wishlist'),
-VALUES (2, 'Test wishlist 2');
+VALUES
+    (1, 'Test wishlist'),
+    (2, 'Test wishlist 2');
 
 INSERT INTO userWishlist (userID, wishlistID)
-VALUES (1, 1),
-VALUES (2, 2);
+VALUES
+    (1, 1),
+    (2, 2);
 
 
 -- Test data
