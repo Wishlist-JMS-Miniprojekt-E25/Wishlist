@@ -1,4 +1,5 @@
 -- Drop eksisterende tabeller hvis de findes (så scriptet kan køres igen uden fejl)
+DROP TABLE IF EXISTS sharedWishlist;
 DROP TABLE IF EXISTS wishWishlist;
 DROP TABLE IF EXISTS wish;
 DROP TABLE IF EXISTS userWishlist;
