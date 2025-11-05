@@ -106,6 +106,8 @@ public class WishlistController {
         model.addAttribute("user", new User());
 
         model.addAttribute("pageTitle", "Create an account");
+        model.addAttribute("showAddWish", true);
+        model.addAttribute("showBack", true);
 
         return "createUser";
     }
@@ -243,6 +245,8 @@ public class WishlistController {
         Wishlist wishlist = new Wishlist();
         wishlist.setUserID(userID);
         model.addAttribute("wishlist", wishlist);
+        model.addAttribute("userID", userID);
+        model.addAttribute("username", session.getAttribute("username"));
         return "addWishlist";
     }
 
@@ -336,6 +340,7 @@ public class WishlistController {
         model.addAttribute("wishlists", wishlists);
         model.addAttribute("wishlistID", wishlistID);
         model.addAttribute("userID",userID);
+        model.addAttribute("username", session.getAttribute("username"));
         model.addAttribute("wishlist", service.findWishlistByID(wishlistID));
         model.addAttribute("showBack", true);
         model.addAttribute("backLink", "/userFrontpage");
@@ -353,6 +358,11 @@ public class WishlistController {
 
         if (currentUserID == null) {
             return "redirect:/";
+        }
+
+        if (currentUserID == targetUserID) {
+            redirectAttributes.addFlashAttribute("errorMessage", "You can't share a wishlist with yourself.");
+            return "redirect:/shareWishlist/" + wishlistID;
         }
 
         // Tjek om ønskelisten allerede er delt med brugeren
