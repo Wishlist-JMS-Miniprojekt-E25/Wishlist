@@ -22,12 +22,12 @@ public class WishlistRepositoryIntegrationTest {
     private WishlistRepository repository;
 
     @Test
-    void testReadAllAttractions() {
+    void testReadWishlist() {
         List<Wishlist> all = repository.showWishlists(1);
 
         assertThat(all).isNotNull();
         assertThat(all.size()).isEqualTo(1);
-        assertThat(all.get(0).getWishlistName()).isEqualTo("Test Wishlist");
+        assertThat(all.get(0).getWishlistName()).isEqualTo("Test wishlist");
     }
 
     @Test
